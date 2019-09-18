@@ -10,7 +10,7 @@ function Login() {
             <form>
                 <div className="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
                     <small id="emailHelp" className="form-text text-muted">Not baby's...yours!</small>
                 </div>
                 <div className="form-group">
