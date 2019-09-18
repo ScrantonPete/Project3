@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Eat from "./pages/eat";
+import Sleep from "./pages/sleep";
+import Change from "./pages/change";
+import DailyLog from "./pages/dailyLog";
+import Footer from "./components/footer";
+import Header from "./components/header";
+import Index from "./components/index";
+import Menu from "./components/menu";
+import Start from "./components/start";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Index} />
+          <Route exact path="/start" component={Start} />
+          <Route exact path="/menu" component={Menu} />   
+          <Route exact path="/eat" component={Eat} />
+          <Route exact path="/sleep" component={Sleep} />
+          <Route exact path="/change" component={Change} />
+          <Route exact path="/dailyLog" component={DailyLog} />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

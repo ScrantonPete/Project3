@@ -15,7 +15,7 @@ function onChange(value) {
 
 ReactDom.render(
     <div class="page">
-        <h2>Feed Me</h2>
+        <h2>Change Me</h2>
 
         <TimePicker
             showSecond={false}
@@ -38,4 +38,4 @@ ReactDom.render(
     </div>
 );
 
-export default Eat;
+export default Change;
