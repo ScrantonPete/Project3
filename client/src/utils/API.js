@@ -13,5 +13,10 @@ export default {
   getZzz: function() {
     return axios.get("/api/zzz/");
   },
+
+  // Saves email & password to database
+  saveLogin: function() {
+    return axios.create("/api/login")
+  }
 };
 
