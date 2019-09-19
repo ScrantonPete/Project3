@@ -5,7 +5,7 @@ function Footer() {
 
     return (
         <div class="container">
-            <p class="footer">&copy Pope, MacInnis, Dunn, Rezanka</p>
+            <p class="footer">&copy; Pope, MacInnis, Dunn, Rezanka</p>
         </div>
     )
 }
