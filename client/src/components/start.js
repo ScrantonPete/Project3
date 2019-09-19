@@ -4,9 +4,9 @@ import "./style.css";
 function Start() {
 
     return (
-    <div class="container">
-    <button type="button" class="btn btn-info" id="add"><h1>+</h1></button>
-    <button type="button" class="btn btn-info" id="name">Who's Your Baby?</button>
+    <div className="container">
+    <button type="button" className="btn btn-info" id="add">Add a child</button>
+    <button type="button" className="btn btn-info" id="name">Who's Your Baby?</button>
     </div>
     )
 }
