@@ -1,29 +1,64 @@
-import React from "react";
+import React, { Component } from "react";
+import API from "../utils/API";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Start from "./start";
+
+
 import "./style.css";
 
-function Login() {
+class Login extends Component {
+    state = {
+      email: "",
+      password: "",
+      keepSignedIn: false
+    };
 
-    return (
+    handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("submitted");
+        if (this.state.email && this.state.password) {
+            API.saveLogin({
+                email: this.state.email,
+                password: this.state.password,
+            })
+            // if email & login match, load start page
+            .then( <Route exact path="/start" component={Start} />)
 
-        <div className="container">
-            <h2>Login</h2>
-            <form>
-                <div className="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                    <small id="emailHelp" className="form-text text-muted">Not baby's...yours!</small>
-                </div>
-                <div className="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="********" />
-                </div>
-                <div className="form-group form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                    <label className="form-check-label" for="exampleCheck1">Keep Me Signed In</label>
-                </div>
-                <button type="submit" className="btn btn-info">Submit</button>
-            </form>
-        </div>
-    )
-  }
+            .catch(err => console.log("Error" + err))
+        }
+    };
+
+    handleInputChange = event => {
+        const { keepSignedIn } = event.target;
+        this.setState({
+          [keepSignedIn]: true
+        });
+      };
+
+    render() {
+
+        return (
+
+            <div className="container">
+                <h2>Login</h2>
+                <form>
+                    <div className="form-group">
+                        <label>Email address</label>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" email={this.state.email} />
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="********" password={this.state.password}/>
+                    </div>
+                    {/* <div className="form-group form-check">
+                        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                        <label className="form-check-label" for="exampleCheck1" onClick={this.handleInputChange}>Keep Me Signed In</label>
+                    </div> */}
+                    <button type="submit" className="btn btn-info" onClick={this.handleFormSubmit}>Submit</button>
+                </form>
+            </div>
+        )
+    }
+}
+
   export default Login;

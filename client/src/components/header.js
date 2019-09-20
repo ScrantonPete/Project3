@@ -4,10 +4,10 @@ import "./style.css";
 function Header() {
 
     return (
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-        <h1 class="display-4">Catchy Site Name</h1>
-        <p class="lead">Tracking Baby's Basic Needs</p>
+    <div className="jumbotron jumbotron-fluid">
+        <div className="container">
+        <h1 className="display-4">Catchy Site Name</h1>
+        <p className="lead">Tracking Baby's Basic Needs</p>
         </div>
     </div>
     )
