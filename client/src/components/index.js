@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/API";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Start from "./start";
+// import API from "../utils/API";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import Start from "./start";
 import "./style.css";
 
 class Login extends Component {
@@ -12,20 +12,20 @@ class Login extends Component {
     //   keepSignedIn: false
     };
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        console.log("submitted");
-        if (this.state.email && this.state.password) {
-            API.saveLogin({
-                email: this.state.email,
-                password: this.state.password,
-            })
-            // if email & login match, load start page
-            .then( <Route exact path="/start" component={Start} />)
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    //     console.log("submitted");
+    //     if (this.state.email && this.state.password) {
+    //         API.saveLogin({
+    //             email: this.state.email,
+    //             password: this.state.password,
+    //         })
+    //         // if email & login match, load start page
+    //         .then( <Route exact path="/start" component={Start} />)
 
-            .catch(err => console.log("Error" + err))
-        }
-    };
+    //         .catch(err => console.log("Error" + err))
+    //     }
+    // };
 
     handleInputChange = event => {
         const { keepSignedIn } = event.target;
