@@ -32,7 +32,7 @@ class Eat extends Component {
 
     render() {
         return(
-        <div className="page">
+        <div className="container">
             <h2>Feed Me</h2>
 
             <TimePicker

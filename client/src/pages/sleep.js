@@ -19,7 +19,7 @@ class Sleep extends Component {
 
     render() {
         return (
-        <div class="page">
+        <div class="container">
             <h2>Zzzzz</h2>
 
             <h5>Asleep</h5>
