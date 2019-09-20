@@ -31,7 +31,6 @@ class Change extends Component {
                 use12Hours
                 inputReadOnly
             />,
-            document.getElementById('__react-content')
 
             <div class="input-group">
                 <div class="input-group-prepend">

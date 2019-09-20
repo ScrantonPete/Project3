@@ -1,16 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import API from "../utils/API";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Start from "./start";
-
-
 import "./style.css";
 
 class Login extends Component {
     state = {
       email: "",
       password: "",
-      keepSignedIn: false
+    //   keepSignedIn: false
     };
 
     handleFormSubmit = event => {
@@ -54,7 +53,14 @@ class Login extends Component {
                         <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                         <label className="form-check-label" for="exampleCheck1" onClick={this.handleInputChange}>Keep Me Signed In</label>
                     </div> */}
-                    <button type="submit" className="btn btn-info" onClick={this.handleFormSubmit}>Submit</button>
+                    <Link
+                        to="/start"
+                        className={ window.location.pathname === "/start" }
+                        >
+                         <button type="submit" className="btn btn-info">Submit</button>
+                    </Link>
+
+                   
                 </form>
             </div>
         )

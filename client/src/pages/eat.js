@@ -19,7 +19,7 @@ class Eat extends Component {
 
     render() {
         return(
-        <div class="page">
+        <div className="page">
             <h2>Feed Me</h2>
 
             <TimePicker
@@ -31,15 +31,14 @@ class Eat extends Component {
                 use12Hours
                 inputReadOnly
             />,
-            document.getElementById('__react-content')
 
-            <div class="input-group">
-                <div class="input-group-prepend">
-                <label class="input-group-text">Details</label>
+            <div className="input-group">
+                <div className="input-group-prepend">
+                <label className="input-group-text">Details</label>
                 </div>
-                <textarea class="form-control"></textarea>
+                <textarea className="form-control"></textarea>
             </div>
-            <button type="button" class="btn btn-info" id="save">Save</button>
+            <button type="button" className="btn btn-info" id="save">Save</button>
         </div>
     )};
 }
