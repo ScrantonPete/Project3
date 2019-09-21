@@ -9,6 +9,7 @@ import Header from "./components/header";
 import Index from "./components/index";
 import Menu from "./components/menu";
 import Start from "./components/start";
+import Register from "./pages/register";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/sleep" component={Sleep} />
           <Route exact path="/change" component={Change} />
           <Route exact path="/dailyLog" component={DailyLog} />
+          <Route exact path="/register" component={Register} />
         </Switch>
         <Footer />
       </div>
