@@ -17,6 +17,11 @@ export default {
   // Saves email & password to database
   saveLogin: function() {
     return axios.create("/api/login")
+  },
+
+  // Saves time & details
+  feedMe: function() {
+    return axios.create("/api/feedMe")
   }
 };
 

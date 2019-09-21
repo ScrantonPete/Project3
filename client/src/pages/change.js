@@ -19,7 +19,7 @@ class Change extends Component {
 
     render () {
         return (
-        <div className="page">
+        <div className="container">
             <h2>Change Me</h2>
 
             <TimePicker

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API";
 import "./style.css";
 
 import 'rc-time-picker/assets/index.css';
@@ -11,7 +12,19 @@ const now = moment().hour(0).minute(0);
 
 class Eat extends Component {
     state = {
+        feed: ""
     };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("submitted");
+        
+        API.feedMe()
+        .then(res => this.setState({ feed: res.data }))
+        .catch(err => console.log("Error" + err))
+        
+    };
+
 
     // function onChange(value) {
     //   console.log(value && value.format(format));
@@ -19,7 +32,7 @@ class Eat extends Component {
 
     render() {
         return(
-        <div className="page">
+        <div className="container">
             <h2>Feed Me</h2>
 
             <TimePicker
@@ -38,7 +51,7 @@ class Eat extends Component {
                 </div>
                 <textarea className="form-control"></textarea>
             </div>
-            <button type="button" className="btn btn-info" id="save">Save</button>
+            <button type="button" className="btn btn-info" id="save" onClick={this.handleFormSubmit}>Save</button>
         </div>
     )};
 }
