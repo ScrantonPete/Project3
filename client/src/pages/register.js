@@ -60,6 +60,9 @@ class Register extends Component {
               babyImg={this.state.babyImg}
             />
           </div>
+          <button type="submit" className="btn btn-info">
+              Register
+          </button>
         </form>
       </div>
     );
