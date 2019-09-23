@@ -20,9 +20,9 @@ class Sleep extends Component {
     render() {
         return (
         <div class="container">
-            <h2>Zzzzz</h2>
+            <h2>Sleep</h2>
 
-            <h5>Asleep</h5>
+            <h6>Asleep</h6>
             <TimePicker
                 showSecond={false}
                 defaultValue={now}
@@ -31,11 +31,11 @@ class Sleep extends Component {
                 format={format}
                 use12Hours
                 inputReadOnly
-            />,
+            />
 
-            <h5>to</h5>
+            <h6>to</h6>
 
-            <h5>Awake</h5>
+            <h6>Awake</h6>
             <TimePicker
                 showSecond={false}
                 defaultValue={now}
@@ -44,7 +44,7 @@ class Sleep extends Component {
                 format={format}
                 use12Hours
                 inputReadOnly
-            />,
+            />
 
             <div class="input-group">
                 <div class="input-group-prepend">
