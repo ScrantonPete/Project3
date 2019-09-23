@@ -23,7 +23,10 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || 
-    "mongodb://localhost/babytracker");
+    "mongodb://localhost/babytracker", { useNewUrlParser: true }).then(
+        () => {console.log("Database is connected") },
+        err => { console.log("Cannot connecttodatabase" + err)}
+    );
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
