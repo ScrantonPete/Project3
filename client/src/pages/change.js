@@ -21,28 +21,47 @@ class Change extends Component {
     details: ""
   };
 
-  getChangeTime = () => {
-    API.getChangeTime()
+  // getChangeTime = () => {
+  //   console.log("handleInputChange" + this.setState)
+  //   API.getChangeTime()
+  //     .then(res =>
+  //       this.setState({
+  //         value: res.data,
+  //         details: ""
+  //       })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    API.getChangeTime({
+      value: this.state.value,
+      details: this.state.details
+    })
       .then(res =>
         this.setState({
           value: res.data,
-          details: res.data
+          details: ""
+      
         })
       )
-      .catch(err => console.log(err));
-  };
 
-  handleFormSubmit = (value, details) => {
+    // this.setState({ value });
+    // this.setState({ details });
 
-    this.setState({ value });
-    this.setState({ details });
-
-
-    this.getChangeTime(this.state.value.format('hh:mm:ss'));
-    this.getChangeTime(this.state.details);
+    // this.getChangeTime(this.state.value.format('hh:mm:ss'));
+    // this.getChangeTime(this.state.details);
     console.log("time: " + this.state.value.format('hh:mm:ss'));
     console.log("details: " + this.state.details);
- 
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
   };
 
 
@@ -55,7 +74,7 @@ class Change extends Component {
           showSecond={false}
           defaultValue={value}
           className="xxx"
-          onChange={value => this.handleFormSubmit(value)}
+          onChange={this.handleInputChange}
           format={format}
           use12Hours
           inputReadOnly
@@ -68,7 +87,7 @@ class Change extends Component {
           <div className="input-group-prepend">
             <label className="input-group-text">Details</label>
           </div>
-          <textarea className="form-control" id="details" name="details" onClick={details => this.handleFormSubmit(details)}>
+          <textarea className="form-control" id="details" name="details"  onChange={this.handleInputChange} >
           </textarea>
         </div>
         <button
@@ -76,6 +95,7 @@ class Change extends Component {
           className="btn btn-info"
           id="save"
           onClick={this.handleFormSubmit}
+          // value={details => this.state.details(details)}
           >
           Save
         </button>

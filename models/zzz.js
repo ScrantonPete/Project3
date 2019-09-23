@@ -7,6 +7,6 @@ const zzzSchema = new Schema({
   details: String
 });
 
-const Zzz = mongoose.model("Book", zzzSchema);
+const Zzz = mongoose.model("Zzz", zzzSchema);
 
 module.exports = Zzz;

@@ -6,7 +6,8 @@ export default {
     return axios.get("/api/feedMe/");
   },
   getChangeTime: function() {
-    return axios.create("/api/changeMe/");
+    console.log("API.js")
+    return axios.post("/api/change/");
   },
   getZzz: function() {
     return axios.get("/api/zzz/");
@@ -14,11 +15,11 @@ export default {
 
   // Saves email & password to database
   saveLogin: function() {
-    return axios.create("/api/login");
+    return axios.post("/api/login");
   },
 
   // Saves time & details
   feedMe: function() {
-    return axios.create("/api/feedMe");
+    return axios.post("/api/feedMe");
   }
 };
