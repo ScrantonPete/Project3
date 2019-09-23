@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/feedMe/");
   },
   getChangeTime: function() {
-    return axios.get("/api/changeMe/");
+    return axios.create("/api/changeMe/");
   },
   getZzz: function() {
     return axios.get("/api/zzz/");
