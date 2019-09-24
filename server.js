@@ -1,20 +1,18 @@
 const express = require("express");
 const app = express();
+const routes = require("./routes");
+const logger = require("morgan");
 
 const PORT = process.env.PORT || 3001;
 
-const routes = require("./routes");
+// Define middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(routes);
-
-const logger = require("morgan");
 app.use(logger("dev"));
 
 // Require database
 const mongoose = require("mongoose");
-
-// Define middleware
-app.use(express.urlencoded({ exteded: true }));
-app.use(express.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -23,7 +21,8 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || 
-    "mongodb://localhost/babytracker", { useNewUrlParser: true }).then(
+    "mongodb://localhost/babytracker", { useNewUrlParser: true , useCreateIndex: true })
+    .then(
         () => {console.log("Database is connected") },
         err => { console.log("Cannot connecttodatabase" + err)}
     );

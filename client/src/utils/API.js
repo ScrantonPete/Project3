@@ -5,9 +5,9 @@ export default {
   getFeed: function() {
     return axios.get("/api/feedMe/");
   },
-  getChangeTime: function() {
+  getChangeTime: function(change) {
     console.log("API.js")
-    return axios.post("/api/change/");
+    return axios.post("/api/change/", change);
   },
   getZzz: function() {
     return axios.get("/api/zzz/");
