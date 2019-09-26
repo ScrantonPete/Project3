@@ -6,6 +6,8 @@ import "rc-time-picker/assets/index.css";
 import moment from "moment";
 import TimePicker from "rc-time-picker";
 import API from "../utils/API";
+// import PropTypes from 'prop-types';
+
 // import App from "../App"
 
 const format = "hh:mm a";
@@ -13,13 +15,17 @@ const format = "hh:mm a";
 //   .hour(0)
 //   .minute(0);
 
-
 class Change extends Component {
+  // static propTypes = {
+  //   defaultValue: PropTypes.object,
+
+  // },
   state = {
     value: moment(),
     // user: [],
     details: ""
   };
+
 
   // getChangeTime = () => {
   //   console.log("handleInputChange" + this.setState)
@@ -37,7 +43,7 @@ class Change extends Component {
     event.preventDefault();
 
     API.getChangeTime({
-      value: this.state.value,
+      time: this.state.value,
       details: this.state.details
     })
       .then(res =>
@@ -66,13 +72,13 @@ class Change extends Component {
 
 
   render() {
-    const { value } = this.state;
+    // const { value } = this.state;
     return (
       <div className="container">
         <h2>Change Me</h2>
         <TimePicker
           showSecond={false}
-          defaultValue={value}
+          defaultValue={moment()}
           className="xxx"
           onChange={this.handleInputChange}
           format={format}
