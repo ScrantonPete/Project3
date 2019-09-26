@@ -8,6 +8,6 @@ const changeMeSchema = new Schema({
   details: String
 });
 
-const Change = mongoose.model("changeMe", changeMeSchema);
+const Change = mongoose.model("change", changeMeSchema);
 
 module.exports = Change;
