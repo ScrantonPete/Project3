@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const controller = require("../../controllers/controller");
+const changeController = require("../../controllers").changeController;
 
 // Matches with "/api/books"
 router.route("/")  
-  .post(controller.create);
+  .post(changeController.create);
 
 console.log("change API ")
 // Matches with "/api/books/:id"
