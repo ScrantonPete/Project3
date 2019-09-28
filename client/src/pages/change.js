@@ -1,50 +1,35 @@
 import React, { Component } from "react";
 import "./style.css";
-// import DatePicker from "../components/DatePicker";
+import DatePicker from "../components/DatePicker";
 import "rc-time-picker/assets/index.css";
-// import ReactDom from 'react-dom';
 import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
+<<<<<<< HEAD
 import Date from "../components/DatePicker";
 
 // import PropTypes from 'prop-types';
 
 // import App from "../App"
+=======
+>>>>>>> 7fdeda4e8f281a957d5f6bab6d2c16f11d84ea66
 
 const format = "hh:mm a";
-// const now = moment()
-//   .hour(0)
-//   .minute(0);
 
 class Change extends Component {
-  // static propTypes = {
-  //   defaultValue: PropTypes.object,
 
-  // },
   state = {
+    // user: "",
+    // date: "",
     value: moment(),
-    // user: [],
     details: ""
   };
-
-  // getChangeTime = () => {
-  //   console.log("handleInputChange" + this.setState)
-  //   API.getChangeTime()
-  //     .then(res =>
-  //       this.setState({
-  //         value: res.data,
-  //         details: ""
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
 
   handleFormSubmit = event => {
     event.preventDefault();
 
     API.getChangeTime({
-      time: this.state.value,
+      time: this.state.value.format("hh:mm a"),
       details: this.state.details
     }).then(res =>
       this.setState({
@@ -53,26 +38,18 @@ class Change extends Component {
       })
     );
 
-    // this.setState({ value });
-    // this.setState({ details });
-
-    // this.getChangeTime(this.state.value.format('hh:mm:ss'));
-    // this.getChangeTime(this.state.details);
     console.log("time: " + this.state.value.format("hh:mm:ss"));
     console.log("details: " + this.state.details);
   };
 
-  handleInputChange = value => {
-    console.log(value && value.format(format));
-
-    // const { name, value } = event.target;
-    // this.setState({
-    //   [name]: value
-    // });
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
   };
 
   render() {
-    // const { value } = this.state;
     return (
       <div className="container">
         <h2>Change Me</h2>
@@ -91,17 +68,16 @@ class Change extends Component {
             onChange={this.handleInputChange}
           ></textarea>
         </div>
+
         <button
           type="button"
           className="btn btn-info"
           id="save"
           onClick={this.handleFormSubmit}
-          // value={details => this.state.details(details)}
         >
           Save
         </button>
       </div>
-      //
     );
   }
 }

@@ -9,19 +9,29 @@ class DatePick extends Component {
     startDate: new Date()
   };
 
+<<<<<<< HEAD
   handleChange = date => {
     // console.log(startDate);
     // if (startDate === this.state.startDate) return;
+=======
+  handleChange = event => {
+    const { name, value } = event.target;
+
+>>>>>>> 7fdeda4e8f281a957d5f6bab6d2c16f11d84ea66
     this.setState({
-      startDate: date
+      [name]: value
     });
   };
+  
 
   render() {
     return (
       <DatePicker
-        selected={this.state.startDate}
+        selected={this.startDate}
         onChange={this.handleChange}
+        defaultValue={this.value}
+        name="value"
+        inputReadOnly
       />
     );
   }
