@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
-import "rc-time-picker/assets/index.css";
-// import moment from "moment";
-// import Timer from "../components/TimePicker";
+import Date from "../components/DatePicker";
 import API from "../utils/API";
-import "rc-time-picker/assets/index.css";
 // import ReactDom from 'react-dom';
 import moment from "moment";
 
@@ -40,6 +37,8 @@ class Eat extends Component {
     return (
       <div className="container">
         <h2>Feed Me</h2>
+        <Date />
+        <p></p>
         <Timer />
 
         <div className="input-group">

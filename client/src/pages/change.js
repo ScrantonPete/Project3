@@ -5,11 +5,15 @@ import "rc-time-picker/assets/index.css";
 import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
+import Date from "../components/DatePicker";
+
+// import PropTypes from 'prop-types';
+
+// import App from "../App"
 
 const format = "hh:mm a";
 
 class Change extends Component {
-
   state = {
     // user: "",
     // date: "",
@@ -45,9 +49,9 @@ class Change extends Component {
     return (
       <div className="container">
         <h2>Change Me</h2>
-
+        <Date />
+        <p></p>
         <Timer />
-
 
         <div className="input-group">
           <div className="input-group-prepend">

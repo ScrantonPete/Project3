@@ -1,35 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import DatePicker from "react-datepicker";
-import PropTypes from "prop-types";
 import "react-datepicker/dist/react-datepicker.css";
-
+// import { start } from "repl";
 // CSS Modules, react-datepicker-cssmodules.css
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
-class Date extends React.Component {
+class DatePick extends Component {
   state = {
     startDate: new Date()
   };
 
-  handleChange = event => {
-    const { name, value } = event.target;
-
+  handleChange = date => {
+    // console.log(startDate);
+    // if (startDate === this.state.startDate) return;
     this.setState({
-      [name]: value
+      startDate: date
     });
   };
-  
 
   render() {
     return (
       <DatePicker
-        selected={this.startDate}
+        selected={this.state.startDate}
         onChange={this.handleChange}
-        defaultValue={this.value}
-        name="value"
-        inputReadOnly
       />
     );
   }
 }
-export default DatePicker;
+
+export default DatePick;
