@@ -2,8 +2,10 @@ const router = require("express").Router();
 const sleepController = require("../../controllers").sleepController;
 
 // Matches with "/api/books"
-router.route("/")  
-  .post(sleepController.create);
+router
+  .route("/")
+  .post(sleepController.create)
+  .get(sleepController.findAll);
 
 // Matches with "/api/books/:id"
 // router.route("/:id")
