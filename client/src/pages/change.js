@@ -4,7 +4,7 @@ import "./style.css";
 import "rc-time-picker/assets/index.css";
 // import ReactDom from 'react-dom';
 import moment from "moment";
-import TimePicker from "rc-time-picker";
+import Timer from "../components/TimePicker";
 import API from "../utils/API";
 // import PropTypes from 'prop-types';
 
@@ -26,7 +26,6 @@ class Change extends Component {
     details: ""
   };
 
-
   // getChangeTime = () => {
   //   console.log("handleInputChange" + this.setState)
   //   API.getChangeTime()
@@ -39,62 +38,64 @@ class Change extends Component {
   //     .catch(err => console.log(err));
   // };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
 
     API.getChangeTime({
       time: this.state.value,
       details: this.state.details
-    })
-      .then(res =>
-        this.setState({
-          value: res.data,
-          details: ""
-      
-        })
-      )
+    }).then(res =>
+      this.setState({
+        value: res.data,
+        details: ""
+      })
+    );
 
     // this.setState({ value });
     // this.setState({ details });
 
     // this.getChangeTime(this.state.value.format('hh:mm:ss'));
     // this.getChangeTime(this.state.details);
-    console.log("time: " + this.state.value.format('hh:mm:ss'));
+    console.log("time: " + this.state.value.format("hh:mm:ss"));
     console.log("details: " + this.state.details);
   };
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+  handleInputChange = value => {
+    console.log(value && value.format(format));
 
+    // const { name, value } = event.target;
+    // this.setState({
+    //   [name]: value
+    // });
+  };
 
   render() {
     // const { value } = this.state;
     return (
       <div className="container">
         <h2>Change Me</h2>
-        <TimePicker
-          showSecond={false}
-          defaultValue={moment()}
-          className="xxx"
-          onChange={this.handleInputChange}
-          format={format}
-          use12Hours
-          inputReadOnly
-          name="value"
+        <Timer />
+        {/* //   showSecond={false}
+        //   defaultValue={moment()}
+        //   className="xxx"
+        //   onChange={this.handleInputChange}
+        //   format={format}
+        //   use12Hours
+        //   inputReadOnly
+        //   name="value"
           
-        />
+        // /> */}
 
-        
         <div className="input-group">
           <div className="input-group-prepend">
             <label className="input-group-text">Details</label>
           </div>
-          <textarea className="form-control" id="details" name="details"  onChange={this.handleInputChange} >
-          </textarea>
+          <textarea
+            className="form-control"
+            id="details"
+            name="details"
+            onChange={this.handleInputChange}
+          ></textarea>
         </div>
         <button
           type="button"
@@ -102,14 +103,13 @@ class Change extends Component {
           id="save"
           onClick={this.handleFormSubmit}
           // value={details => this.state.details(details)}
-          >
+        >
           Save
         </button>
       </div>
-        // 
+      //
     );
   }
 }
-
 
 export default Change;
