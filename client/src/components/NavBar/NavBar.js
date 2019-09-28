@@ -17,7 +17,9 @@ function NavBar() {
         <a className="change" href="/change">
           Change
         </a>
-        <a className="daily" href="/dailyLog">Daily Log</a>
+        <a className="daily" href="/dailyLog">
+          Daily Log
+        </a>
       </div>
     </div>
   );
