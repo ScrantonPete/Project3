@@ -75,16 +75,6 @@ class Change extends Component {
       <div className="container">
         <h2>Change Me</h2>
         <Timer />
-        {/* //   showSecond={false}
-        //   defaultValue={moment()}
-        //   className="xxx"
-        //   onChange={this.handleInputChange}
-        //   format={format}
-        //   use12Hours
-        //   inputReadOnly
-        //   name="value"
-          
-        // /> */}
 
         <div className="input-group">
           <div className="input-group-prepend">
