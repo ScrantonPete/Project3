@@ -4,7 +4,7 @@ import API from "../utils/API";
 
 class Register extends Component {
   state = {
-    email: "",
+    user: "",
     password: "",
     babyName: "",
     babyImg: ""
@@ -14,22 +14,22 @@ class Register extends Component {
     event.preventDefault();
     console.log("success!");
 
-    API.saveLogin({
-      email: this.state.email,
+    API.register({
+      user: this.state.user,
       password: this.state.password,
       babyName: this.state.babyName,
       babyImg: this.state.babyImg
     })
       .then(res =>
         this.setState({
-          email: "",
+          user: "",
           password: "",
           babyName: "",
           babyImg: ""
         })
       )
 
-      console.log("Current states: " + this.state.email + " " + this.state.password + " " + this.state.babyName + " " + this.state.babyImg);
+      console.log("Current states: " + this.state.user + " " + this.state.password + " " + this.state.babyName + " " + this.state.babyImg);
   };
 
   handleInputChange = event => {
@@ -51,7 +51,7 @@ class Register extends Component {
               className="form-control"
               id="newEmail"
               placeholder="Enter email or user name"
-              name="email"  
+              name="user"  
               onChange={this.handleInputChange}
             />
           </div>

@@ -7,30 +7,30 @@ import "./style.css";
 
 class Login extends Component {
   state = {
-    email: "",
+    user: "",
     password: ""
     //   keepSignedIn: false
   };
 
   handleFormSubmit = event => {
       event.preventDefault();
-      // if (this.state.email && this.state.password) {
+      // if (this.state.user && this.state.password) {
           API.saveLogin({
-              email: this.state.email,
+              user: this.state.user,
               password: this.state.password,
           })
             .then(res =>
               this.setState({
-                email: "",
+                user: "",
                 password: ""
               })
             )
-          // if email & login match, load start page
+          // if user & login match, load start page
           // .then( <Route exact path="/start" component={Start} />)
 
           // .catch(err => console.log("Error" + err))
       // }
-      console.log("email: " + this.state.email);
+      console.log("user: " + this.state.user);
       console.log("password: " + this.state.password);
   };
 
@@ -54,14 +54,14 @@ class Login extends Component {
         <h2>Login</h2>
         <form>
           <div className="form-group">
-            <label>Email address</label>
+            <label>user address</label>
             <input
-              type="email"
+              type="user"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
-              name="email"  
+              placeholder="Enter user name or email"
+              name="user"  
               onChange={this.handleInputChange} 
             />
           </div>

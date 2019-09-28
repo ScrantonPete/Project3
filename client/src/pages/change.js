@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-// import DatePicker from "../components/DatePicker";
+import DatePicker from "../components/DatePicker";
 import "rc-time-picker/assets/index.css";
 import moment from "moment";
 import TimePicker from "rc-time-picker";
@@ -11,6 +11,8 @@ const format = "hh:mm a";
 class Change extends Component {
 
   state = {
+    // user: "",
+    // date: "",
     value: moment(),
     details: ""
   };
@@ -44,6 +46,11 @@ class Change extends Component {
     return (
       <div className="container">
         <h2>Change Me</h2>
+
+        <DatePicker>
+
+
+        </DatePicker>
 
         <TimePicker
           showSecond={false}

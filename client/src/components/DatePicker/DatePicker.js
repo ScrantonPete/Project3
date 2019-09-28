@@ -11,17 +11,23 @@ class Date extends React.Component {
     startDate: new Date()
   };
 
-  handleChange = date => {
+  handleChange = event => {
+    const { name, value } = event.target;
+
     this.setState({
-      startDate: date
+      [name]: value
     });
   };
+  
 
   render() {
     return (
       <DatePicker
-        selected={this.state.startDate}
+        selected={this.startDate}
         onChange={this.handleChange}
+        defaultValue={this.value}
+        name="value"
+        inputReadOnly
       />
     );
   }
