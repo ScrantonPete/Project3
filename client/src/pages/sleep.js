@@ -6,6 +6,8 @@ import "rc-time-picker/assets/index.css";
 import moment from "moment";
 import TimePicker from "rc-time-picker";
 
+import Timer from "../components/TimePicker";
+
 const format = "h:mm a";
 const now = moment()
   .hour(0)
@@ -26,7 +28,7 @@ class Sleep extends Component {
         <h6>Asleep</h6>
         <TimePicker
           showSecond={false}
-          defaultValue={now}
+
           className="xxx"
           // onChange={onChange}
           format={format}
@@ -37,15 +39,8 @@ class Sleep extends Component {
         <h6>to</h6>
 
         <h6>Awake</h6>
-        <TimePicker
-          showSecond={false}
-          defaultValue={now}
-          className="xxx"
-          // onChange={onChange}
-          format={format}
-          use12Hours
-          inputReadOnly
-        />
+
+        <Timer />
 
         <div class="input-group">
           <div class="input-group-prepend">

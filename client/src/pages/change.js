@@ -4,7 +4,7 @@ import "./style.css";
 import "rc-time-picker/assets/index.css";
 // import ReactDom from 'react-dom';
 import moment from "moment";
-import TimePicker from "rc-time-picker";
+import Timer from "../components/TimePicker";
 import API from "../utils/API";
 // import PropTypes from 'prop-types';
 
@@ -60,11 +60,13 @@ class Change extends Component {
     console.log("details: " + this.state.details);
   };
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+  handleInputChange = value => {
+    console.log(value && value.format(format));
+
+    // const { name, value } = event.target;
+    // this.setState({
+    //   [name]: value
+    // });
   };
 
   render() {
@@ -72,16 +74,9 @@ class Change extends Component {
     return (
       <div className="container">
         <h2>Change Me</h2>
-        <TimePicker
-          showSecond={false}
-          defaultValue={moment()}
-          className="xxx"
-          onChange={this.handleInputChange}
-          format={format}
-          use12Hours
-          inputReadOnly
-          name="value"
-        />
+
+        <Timer />
+
 
         <div className="input-group">
           <div className="input-group-prepend">

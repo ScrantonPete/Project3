@@ -5,7 +5,8 @@ import "./style.css";
 import "rc-time-picker/assets/index.css";
 // import ReactDom from 'react-dom';
 import moment from "moment";
-import TimePicker from "rc-time-picker";
+
+import Timer from "../components/TimePicker";
 
 const format = "h:mm a";
 const now = moment()
@@ -34,16 +35,8 @@ class Eat extends Component {
     return (
       <div className="container">
         <h2>Feed Me</h2>
-        <TimePicker
-          showSecond={false}
-          defaultValue={now}
-          className="xxx"
-          onChange={this.onChange}
-          format={format}
-          use12Hours
-          inputReadOnly
-        />
-        ,
+        <Timer />
+
         <div className="input-group">
           <div className="input-group-prepend">
             <label className="input-group-text">Details</label>
