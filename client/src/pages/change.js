@@ -34,13 +34,11 @@ class Change extends Component {
     console.log("details: " + this.state.details);
   };
 
-  handleInputChange = value => {
-    console.log(value && value.format(format));
-
-    // const { name, value } = event.target;
-    // this.setState({
-    //   [name]: value
-    // });
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
   };
 
   render() {
