@@ -5,7 +5,7 @@ import "rc-time-picker/assets/index.css";
 // import ReactDom from 'react-dom';
 import moment from "moment";
 import TimePicker from "rc-time-picker";
-
+import Date from "../components/DatePicker";
 import Timer from "../components/TimePicker";
 
 const format = "h:mm a";
@@ -24,11 +24,11 @@ class Sleep extends Component {
     return (
       <div class="container">
         <h2>Sleep</h2>
+        <Date />
 
         <h6>Asleep</h6>
         <TimePicker
           showSecond={false}
-
           className="xxx"
           // onChange={onChange}
           format={format}
