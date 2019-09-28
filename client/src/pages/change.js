@@ -3,7 +3,7 @@ import "./style.css";
 import DatePicker from "../components/DatePicker";
 import "rc-time-picker/assets/index.css";
 import moment from "moment";
-import TimePicker from "rc-time-picker";
+import Timer from "../components/TimePicker";
 import API from "../utils/API";
 
 const format = "hh:mm a";
@@ -34,11 +34,13 @@ class Change extends Component {
     console.log("details: " + this.state.details);
   };
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+  handleInputChange = value => {
+    console.log(value && value.format(format));
+
+    // const { name, value } = event.target;
+    // this.setState({
+    //   [name]: value
+    // });
   };
 
   render() {
@@ -46,27 +48,19 @@ class Change extends Component {
       <div className="container">
         <h2>Change Me</h2>
 
-        <DatePicker>
+        <Timer />
 
-
-        </DatePicker>
-
-        <TimePicker
-          showSecond={false}
-          defaultValue={moment()}
-          className="xxx"
-          format={format}
-          use12Hours
-          inputReadOnly
-          name="value"
-        />
 
         <div className="input-group">
           <div className="input-group-prepend">
             <label className="input-group-text">Details</label>
           </div>
-          <textarea className="form-control" id="details" name="details"  onChange={this.handleInputChange} >
-          </textarea>
+          <textarea
+            className="form-control"
+            id="details"
+            name="details"
+            onChange={this.handleInputChange}
+          ></textarea>
         </div>
 
         <button
@@ -81,6 +75,5 @@ class Change extends Component {
     );
   }
 }
-
 
 export default Change;

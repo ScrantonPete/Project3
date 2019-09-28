@@ -4,72 +4,58 @@ import "rc-time-picker/assets/index.css";
 import moment from "moment";
 import Timer from "../components/TimePicker";
 
+import "rc-time-picker/assets/index.css";
+// import ReactDom from 'react-dom';
+import moment from "moment";
+
+import Timer from "../components/TimePicker";
+
 const format = "h:mm a";
+const now = moment()
+  .hour(0)
+  .minute(0);
 
 class Eat extends Component {
   state = {
-    value: moment(),
-    details: ""
+    feed: ""
   };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
-    
-    API.getFeed({
-      time: this.state.value.format("hh:mm a"),
-      details: this.state.details
-    })
-      .then(res =>
-        this.setState({
-          value: res.data,
-          details: ""
-        })
-      )
+    console.log("submitted");
 
-    console.log("time: " + this.state.value.format("hh:mm a"));
-    console.log("details: " + this.state.details);
+    API.feedMe()
+      .then(res => this.setState({ feed: res.data }))
+      .catch(err => console.log("Error" + err));
   };
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+  onChange = value => {
+    console.log(value && value.format(format));
   };
-          render() {
-              return(
-              <div className="container">
-                  <h2>Feed Me</h2>
 
-            <TimePicker
-            showSecond={false}
-            defaultValue={moment()}
-            className="xxx"
-            format={format}
-            use12Hours
-            inputReadOnly
-            name="value"
-            />
+  render() {
+    return (
+      <div className="container">
+        <h2>Feed Me</h2>
+        <Timer />
 
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <label class="input-group-text">Details</label>
+        <div className="input-group">
+          <div className="input-group-prepend">
+            <label className="input-group-text">Details</label>
           </div>
-          <textarea className="form-control" 
-                    id="details" 
-                    name="details"  
-                    onChange={this.handleInputChange} >
-         </textarea>
-         </div>
-         <button
-                type="button"
-                className="btn btn-info"
-                id="save"
-                onClick={this.handleFormSubmit}
-                >
-                Save
-                </button>
+          <textarea className="form-control"></textarea>
+        </div>
+        <button
+          type="button"
+          className="btn btn-info"
+          id="save"
+          onClick={this.handleFormSubmit}
+          value={this.state.feed}
+        >
+          Save
+        </button>
       </div>
-    )};
+    );
+  }
 }
 export default Eat;

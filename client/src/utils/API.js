@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/feedMe/", feed);
   },
   getChangeTime: function(change) {
-    console.log("API.js")
+    console.log("API.js");
     return axios.post("/api/change/", change);
   },
   getZzz: function(sleep) {
