@@ -74,7 +74,9 @@ class Change extends Component {
     return (
       <div className="container">
         <h2>Change Me</h2>
+
         <Timer />
+
 
         <div className="input-group">
           <div className="input-group-prepend">

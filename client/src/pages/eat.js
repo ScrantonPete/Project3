@@ -5,6 +5,7 @@ import "./style.css";
 import "rc-time-picker/assets/index.css";
 // import ReactDom from 'react-dom';
 import moment from "moment";
+
 import Timer from "../components/TimePicker";
 
 const format = "h:mm a";
@@ -34,7 +35,6 @@ class Eat extends Component {
     return (
       <div className="container">
         <h2>Feed Me</h2>
-
         <Timer />
 
         <div className="input-group">

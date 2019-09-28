@@ -8,7 +8,7 @@ function Header() {
       <div className="container">
         <h1 className="display-4">Parent's Little Helper</h1>
         <p className="lead">Tracking Baby's Basic Needs</p>
-      <NavBar></NavBar>
+        <NavBar></NavBar>
       </div>
     </div>
   );
