@@ -1,36 +1,34 @@
 import React, { Component } from "react";
 import "./style.css";
-// import DatePicker from "../components/DatePicker";
 import "rc-time-picker/assets/index.css";
 import moment from "moment";
-import TimePicker from "rc-time-picker";
-import API from "../utils/API";
+import Timer from "../components/TimePicker";
 
-const format = "hh:mm a";
+const format = "h:mm a";
 
 class Eat extends Component {
-    state = {
-        value: moment(),
-        details: ""
-    };
-    
-    handleFormSubmit = (event) => {
-      event.preventDefault();
-      
-      API.getFeed({
-        time: this.state.value.format("hh:mm a"),
-        details: this.state.details
-      })
-        .then(res =>
-          this.setState({
-            value: res.data,
-            details: ""
-          })
-        )
+  state = {
+    value: moment(),
+    details: ""
+  };
 
-      console.log("time: " + this.state.value.format("hh:mm a"));
-      console.log("details: " + this.state.details);
-    };
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    
+    API.getFeed({
+      time: this.state.value.format("hh:mm a"),
+      details: this.state.details
+    })
+      .then(res =>
+        this.setState({
+          value: res.data,
+          details: ""
+        })
+      )
+
+    console.log("time: " + this.state.value.format("hh:mm a"));
+    console.log("details: " + this.state.details);
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -38,11 +36,10 @@ class Eat extends Component {
       [name]: value
     });
   };
-
-    render() {
-        return(
-        <div className="container">
-            <h2>Feed Me</h2>
+          render() {
+              return(
+              <div className="container">
+                  <h2>Feed Me</h2>
 
             <TimePicker
             showSecond={false}
@@ -54,22 +51,24 @@ class Eat extends Component {
             name="value"
             />
 
-        <div className="input-group">
-            <div className="input-group-prepend">
-                <label className="input-group-text">Details</label>
-            </div>
-            <textarea className="form-control" id="details" name="details"  onChange={this.handleInputChange} >
-            </textarea>
-        </div>
-
-        <button
-          type="button"
-          className="btn btn-info"
-          id="save"
-          onClick={this.handleFormSubmit}
-          >
-          Save
-        </button>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Details</label>
+          </div>
+          <textarea className="form-control" 
+                    id="details" 
+                    name="details"  
+                    onChange={this.handleInputChange} >
+         </textarea>
+         </div>
+         <button
+                type="button"
+                className="btn btn-info"
+                id="save"
+                onClick={this.handleFormSubmit}
+                >
+                Save
+                </button>
       </div>
     )};
 }

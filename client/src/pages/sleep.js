@@ -1,86 +1,81 @@
 import React, { Component } from "react";
 import "./style.css";
-import 'rc-time-picker/assets/index.css';
-import moment from 'moment';
-import TimePicker from 'rc-time-picker';
+import "rc-time-picker/assets/index.css";
+import moment from "moment";
+import TimePicker from "rc-time-picker";
+import Timer from "../components/TimePicker";
 import API from "../utils/API";
 
-const format = 'h:mm a';
+const format = "h:mm a";
 
 class Sleep extends Component {
-    state = {
-        value1: moment(),
-        value2: moment(),
-        details: ""
-    };
+  state = {
+    value1: moment(),
+    value2: moment(),
+    details: ""
+  };
 
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-    
-        API.getZzz({
-          startTime: this.state.value1.format("hh:mm a"),
-          endTime: this.state.value2.format("hh:mm a"),
-          details: this.state.details
-        })
-          .then(res =>
-            this.setState({
-              value1: res.data,
-              value2: res.data,
-              details: ""
-            })
-          )
-    
-        console.log("time: " + this.state.value1.format("hh:mm a"));
-        console.log("time: " + this.state.value2.format("hh:mm a"));
-        console.log("details: " + this.state.details);
-    };
-    
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-          [name]: value
-        });
-    };
-    
+  handleFormSubmit = (event) => {
+      event.preventDefault();
 
-    render() {
-        return (
-        <div class="container">
-            <h2>Sleep</h2>
+      API.getZzz({
+        startTime: this.state.value1.format("hh:mm a"),
+        endTime: this.state.value2.format("hh:mm a"),
+        details: this.state.details
+      })
+        .then(res =>
+          this.setState({
+            value1: res.data,
+            value2: res.data,
+            details: ""
+          })
+        )
 
-            <h6>Asleep</h6>
-            <TimePicker
-                showSecond={false}
-                defaultValue={moment()}
-                className="xxx"
-                format={format}
-                use12Hours
-                inputReadOnly
-                name="value1"
-            />
+      console.log("time: " + this.state.value1.format("hh:mm a"));
+      console.log("time: " + this.state.value2.format("hh:mm a"));
+      console.log("details: " + this.state.details);
+  };
 
-            <h6>to</h6>
+  handleInputChange = event => {
+      const { name, value } = event.target;
+      this.setState({
+        [name]: value
+      });
+  };
 
-            <h6>Awake</h6>
-            <TimePicker
-                showSecond={false}
-                defaultValue={moment()}
-                className="xxx"
-                format={format}
-                use12Hours
-                inputReadOnly
-                name="value2"
-            />
+  render() {
+    return (
+      <div class="container">
+        <h2>Sleep</h2>
 
-            <div className="input-group">
-                <div className="input-group-prepend">
-                    <label className="input-group-text">Details</label>
-                </div>
-                <textarea className="form-control" id="details" name="details"  onChange={this.handleInputChange} >
-                </textarea>
-                </div>
+        <h6>Asleep</h6>
+        <TimePicker
+          showSecond={false}
 
-                <button
+          className="xxx"
+          // onChange={onChange}
+          format={format}
+          use12Hours
+          inputReadOnly
+        />
+
+        <h6>to</h6>
+
+        <h6>Awake</h6>
+
+        <Timer />
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Details</label>
+          </div>
+          <textarea className="form-control" 
+                    id="details" 
+                    name="details"  
+                    onChange={this.handleInputChange} >
+         </textarea>
+         </div>
+         <button
                 type="button"
                 className="btn btn-info"
                 id="save"
@@ -88,9 +83,9 @@ class Sleep extends Component {
                 >
                 Save
                 </button>
-            </div>
-        )
-    };
+      </div>
+    );
+  }
 }
 
 export default Sleep;

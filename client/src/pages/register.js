@@ -13,7 +13,6 @@ class Register extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("success!");
-
     API.register({
       user: this.state.user,
       password: this.state.password,
@@ -62,6 +61,18 @@ class Register extends Component {
               type="password"
               className="form-control"
               id="newPassword"
+              placeholder="*******"
+              name="password"  
+              onChange={this.handleInputChange}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="confirmPassword"
               placeholder="*******"
               name="password"  
               onChange={this.handleInputChange}

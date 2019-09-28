@@ -13,25 +13,25 @@ class Login extends Component {
   };
 
   handleFormSubmit = event => {
-      event.preventDefault();
-      // if (this.state.user && this.state.password) {
-          API.saveLogin({
-              user: this.state.user,
-              password: this.state.password,
-          })
-            .then(res =>
-              this.setState({
-                user: "",
-                password: ""
-              })
-            )
-          // if user & login match, load start page
-          // .then( <Route exact path="/start" component={Start} />)
+    event.preventDefault();
+    // if (this.state.user && this.state.password) {
+        API.saveLogin({
+            user: this.state.user,
+            password: this.state.password,
+        })
+          .then(res =>
+            this.setState({
+              user: "",
+              password: ""
+            })
+          )
+        // if user & login match, load start page
+        // .then( <Route exact path="/start" component={Start} />)
 
-          // .catch(err => console.log("Error" + err))
-      // }
-      console.log("user: " + this.state.user);
-      console.log("password: " + this.state.password);
+        // .catch(err => console.log("Error" + err))
+    // }
+    console.log("user: " + this.state.user);
+    console.log("password: " + this.state.password);
   };
 
   // handleInputChange = event => {
@@ -60,7 +60,7 @@ class Login extends Component {
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter user name or email"
+              placeholder="Enter email"
               name="user"  
               onChange={this.handleInputChange} 
             />
@@ -87,7 +87,7 @@ class Login extends Component {
                     className="btn btn-info"
                     onClick={this.handleFormSubmit}
             >
-            Submit
+              Submit
             </button>
           </Link>
 

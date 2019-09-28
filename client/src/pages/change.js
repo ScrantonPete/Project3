@@ -17,21 +17,20 @@ class Change extends Component {
     details: ""
   };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
 
     API.getChangeTime({
       time: this.state.value.format("hh:mm a"),
       details: this.state.details
-    })
-      .then(res =>
-        this.setState({
-          value: res.data,
-          details: ""
-        })
-      )
+    }).then(res =>
+      this.setState({
+        value: res.data,
+        details: ""
+      })
+    );
 
-    console.log("time: " + this.state.value.format("hh:mm a"));
+    console.log("time: " + this.state.value.format("hh:mm:ss"));
     console.log("details: " + this.state.details);
   };
 
@@ -75,7 +74,7 @@ class Change extends Component {
           className="btn btn-info"
           id="save"
           onClick={this.handleFormSubmit}
-          >
+        >
           Save
         </button>
       </div>
