@@ -1,5 +1,5 @@
 const db = require("../models");
-console.log(db);
+
 module.exports = {
   create: function(req, res) {
     db.User.create(req.body)
