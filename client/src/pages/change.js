@@ -26,7 +26,6 @@ class Change extends Component {
     details: ""
   };
 
-
   // getChangeTime = () => {
   //   console.log("handleInputChange" + this.setState)
   //   API.getChangeTime()
@@ -39,27 +38,25 @@ class Change extends Component {
   //     .catch(err => console.log(err));
   // };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
 
     API.getChangeTime({
       time: this.state.value,
       details: this.state.details
-    })
-      .then(res =>
-        this.setState({
-          value: res.data,
-          details: ""
-      
-        })
-      )
+    }).then(res =>
+      this.setState({
+        value: res.data,
+        details: ""
+      })
+    );
 
     // this.setState({ value });
     // this.setState({ details });
 
     // this.getChangeTime(this.state.value.format('hh:mm:ss'));
     // this.getChangeTime(this.state.details);
-    console.log("time: " + this.state.value.format('hh:mm:ss'));
+    console.log("time: " + this.state.value.format("hh:mm:ss"));
     console.log("details: " + this.state.details);
   };
 
@@ -69,7 +66,6 @@ class Change extends Component {
       [name]: value
     });
   };
-
 
   render() {
     // const { value } = this.state;
@@ -85,16 +81,18 @@ class Change extends Component {
           use12Hours
           inputReadOnly
           name="value"
-          
         />
 
-        
         <div className="input-group">
           <div className="input-group-prepend">
             <label className="input-group-text">Details</label>
           </div>
-          <textarea className="form-control" id="details" name="details"  onChange={this.handleInputChange} >
-          </textarea>
+          <textarea
+            className="form-control"
+            id="details"
+            name="details"
+            onChange={this.handleInputChange}
+          ></textarea>
         </div>
         <button
           type="button"
@@ -102,14 +100,13 @@ class Change extends Component {
           id="save"
           onClick={this.handleFormSubmit}
           // value={details => this.state.details(details)}
-          >
+        >
           Save
         </button>
       </div>
-        // 
+      //
     );
   }
 }
-
 
 export default Change;

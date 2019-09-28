@@ -16,17 +16,24 @@ const mongoose = require("mongoose");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  }
+  app.use(express.static("client/build"));
+}
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || 
-    "mongodb://localhost/babytracker", { useNewUrlParser: true , useCreateIndex: true })
-    .then(
-        () => {console.log("Database is connected") },
-        err => { console.log("Cannot connecttodatabase" + err)}
-    );
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/babytracker", {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
+  .then(
+    () => {
+      console.log("Database is connected");
+    },
+    err => {
+      console.log("Cannot connect to database" + err);
+    }
+  );
 
 app.listen(PORT, () => {
-    console.log(`🌎 ==> API server now on port ${PORT}!`);
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

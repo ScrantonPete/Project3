@@ -2,8 +2,7 @@ const router = require("express").Router();
 const eatController = require("../../controllers").eatController;
 
 // Matches with "/api/books"
-router.route("/")  
-  .post(eatController.create);
+router.route("/").post(eatController.create);
 
 // Matches with "/api/books/:id"
 // router.route("/:id")
