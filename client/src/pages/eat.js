@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
-<<<<<<< HEAD
 import Date from "../components/DatePicker";
-=======
-import "rc-time-picker/assets/index.css";
-// import moment from "moment";
-// import Timer from "../components/TimePicker";
 import API from "../utils/API";
->>>>>>> 7fdeda4e8f281a957d5f6bab6d2c16f11d84ea66
-import "rc-time-picker/assets/index.css";
 // import ReactDom from 'react-dom';
 import moment from "moment";
 

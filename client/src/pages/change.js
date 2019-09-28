@@ -5,19 +5,15 @@ import "rc-time-picker/assets/index.css";
 import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
-<<<<<<< HEAD
 import Date from "../components/DatePicker";
 
 // import PropTypes from 'prop-types';
 
 // import App from "../App"
-=======
->>>>>>> 7fdeda4e8f281a957d5f6bab6d2c16f11d84ea66
 
 const format = "hh:mm a";
 
 class Change extends Component {
-
   state = {
     // user: "",
     // date: "",
