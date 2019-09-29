@@ -19,7 +19,7 @@ class Sleep extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    API.getZzz({
+    API.getSleep({
       startTime: this.state.value1.format("hh:mm a"),
       endTime: this.state.value2.format("hh:mm a"),
       details: this.state.details

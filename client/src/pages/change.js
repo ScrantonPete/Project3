@@ -24,7 +24,7 @@ class Change extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    API.getChangeTime({
+    API.postChange({
       time: this.state.value.format("hh:mm a"),
       details: this.state.details
     }).then(res =>
