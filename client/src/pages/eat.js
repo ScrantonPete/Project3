@@ -21,7 +21,7 @@ class Eat extends Component {
     event.preventDefault();
     console.log("submitted");
 
-    API.feedMe()
+    API.postFeed()
       .then(res => this.setState({ feed: res.data }))
       .catch(err => console.log("Error" + err));
   };
