@@ -7,16 +7,12 @@ import Timer from "../components/TimePicker";
 import API from "../utils/API";
 import Date from "../components/DatePicker";
 
-// import PropTypes from 'prop-types';
-
-// import App from "../App"
-
 const format = "hh:mm a";
 
 class Change extends Component {
   state = {
-    // user: "",
-    // date: "",
+    user: "connie@mail.com",
+    date: "1999-01-01 05:00:00.000Z",
     value: moment(),
     details: ""
   };
@@ -34,7 +30,6 @@ class Change extends Component {
       })
     );
 
-    console.log("time: " + this.state.value.format("hh:mm:ss"));
     console.log("details: " + this.state.details);
   };
 

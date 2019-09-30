@@ -11,6 +11,8 @@ const format = "h:mm a";
 
 class Sleep extends Component {
   state = {
+    user: "connie@mail.com",
+    date: "1999-01-01 05:00:00.000Z",
     value1: moment(),
     value2: moment(),
     details: ""
@@ -45,11 +47,16 @@ class Sleep extends Component {
 
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <h2>Sleep</h2>
         <Date />
 
         <h6>Asleep</h6>
+        <Timer />
+
+        <h6>to</h6>
+
+        <h6>Awake</h6>
         <TimePicker
           showSecond={false}
           className="xxx"
@@ -57,17 +64,13 @@ class Sleep extends Component {
           format={format}
           use12Hours
           inputReadOnly
+          placeholder="awake time"
         />
 
-        <h6>to</h6>
 
-        <h6>Awake</h6>
-
-        <Timer />
-
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <label class="input-group-text">Details</label>
+        <div className="input-group">
+          <div className="input-group-prepend">
+            <label className="input-group-text">Details</label>
           </div>
           <textarea
             className="form-control"
@@ -76,6 +79,7 @@ class Sleep extends Component {
             onChange={this.handleInputChange}
           ></textarea>
         </div>
+
         <button
           type="button"
           className="btn btn-info"
