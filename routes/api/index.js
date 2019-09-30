@@ -9,7 +9,7 @@ const sleep = require("./sleep");
 // changeMe routes
 router.use("/change", changeMe);
 // feedMe routes
-router.use("/feedMe", feedMe);
+router.use("/feed", feedMe);
 // // login routes
 // router.use("/login", login);
 // // register routes
