@@ -21,6 +21,8 @@ class Change extends Component {
     event.preventDefault();
 
     API.postChange({
+      user: "connie@mail.com",
+      date: "1999-01-01 05:00:00.000Z",
       time: this.state.value.format("hh:mm a"),
       details: this.state.details
     }).then(res =>

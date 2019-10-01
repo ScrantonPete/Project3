@@ -4,7 +4,7 @@ export default {
 
   // GETS INFO
   getFeed: function(feed) {
-    return axios.get("/api/feedMe", feed);
+    return axios.get("/api/feed", feed);
   },
   getChange: function(change) {
     console.log("API.js");
@@ -20,7 +20,7 @@ export default {
     return axios.post("/api/change/", change);
   },
   postFeed: function(feed) {
-    return axios.post("/api/feedMe/", feed);
+    return axios.post("/api/feed/", feed);
   },
   postSleep: function(sleep) {
     return axios.post("/api/sleep/", sleep);
