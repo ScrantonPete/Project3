@@ -54,7 +54,7 @@ class Login extends Component {
         <h2>Login</h2>
         <form>
           <div className="form-group">
-            <label>user address</label>
+            <label>Email or User Name</label>
             <input
               type="user"
               className="form-control"

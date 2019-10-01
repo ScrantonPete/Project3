@@ -13,8 +13,8 @@ class Container extends Component {
         ));
       }
       render() {
-        return <div>
-                <h4>{this.props.title} </h4>
+        return <div className="itemList">
+                <h5>{this.props.title} </h5>
                 {this.renderItems()}
                 {(!this.props.itemList || this.props.itemList.length < 1) &&
                 <p>No records to show.</p>

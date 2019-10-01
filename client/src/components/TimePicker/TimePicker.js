@@ -25,6 +25,7 @@ class Timer extends Component {
         use12Hours
         inputReadOnly
         name="value"
+        id="timepicker"
       />
     );
   }

@@ -6,6 +6,7 @@ import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
 import Date from "../components/DatePicker";
+import Container from "../components/Container/container";
 
 const format = "h:mm a";
 
@@ -14,8 +15,24 @@ class Eat extends Component {
     user: "connie@mail.com",
     date: "1999-01-01 05:00:00.000Z",
     value: moment(),
-    details: ""
+    details: "",
+    feed: [],
   };
+
+  componentDidMount = () => {
+
+    const user = {
+      user: "connie@mail.com",
+      date: "1999-01-01 05:00:00.000Z"
+    }
+
+    API.getFeed(user)
+        .then(res => {
+          this.setState({ feed: res.data })
+          console.log(res.data)
+        })
+        .catch(err => console.log("Error" + err));
+  }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -70,6 +87,11 @@ class Eat extends Component {
         >
           Save
         </button>
+
+        <Container
+          itemList={this.state.feed}
+          title="Feed"> 
+        </Container>
       </div>
     );
   }

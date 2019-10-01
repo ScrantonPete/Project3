@@ -6,6 +6,8 @@ import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
 import Date from "../components/DatePicker";
+import Container from "../components/Container/container";
+
 
 const format = "hh:mm a";
 
@@ -14,8 +16,24 @@ class Change extends Component {
     user: "connie@mail.com",
     date: "1999-01-01 05:00:00.000Z",
     value: moment(),
-    details: ""
+    details: "",
+    change: []
   };
+
+  componentDidMount = () => {
+
+    const user = {
+      user: "connie@mail.com",
+      date: "1999-01-01 05:00:00.000Z"
+    }
+
+    API.getChange(user)
+        .then(res => {
+          this.setState({ change: res.data })
+          console.log(res.data)
+        })
+        .catch(err => console.log("Error" + err));
+  }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -70,6 +88,11 @@ class Change extends Component {
         >
           Save
         </button>
+
+        <Container
+          itemList={this.state.change}
+          title="Changes"> 
+        </Container>
       </div>
     );
   }

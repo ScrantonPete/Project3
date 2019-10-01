@@ -22,6 +22,7 @@ class DatePick extends Component {
       <DatePicker
         selected={this.state.startDate}
         onChange={this.handleChange}
+        id="datepicker"
       />
     );
   }
