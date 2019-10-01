@@ -5,31 +5,39 @@ import API from "../utils/API";
 
 class DailyLog extends Component {
   state = {
+    user: "connie@mail.com",
+    date: "1999-01-01 05:00:00.000Z",
     feed: [],
     sleep: [],
     change: []
   }
 
-  componentDidMount = (feed, sleep, change) => {
+  componentDidMount = () => {
     console.log("mounted");
     console.log(this.state.change)
 
-    API.getFeed(feed)
+    const user = {
+      user: "connie@mail.com",
+      date: "1999-01-01 05:00:00.000Z"
+    }
+
+    API.getFeed(user)
       .then(res => {
         this.setState({ feed: res.data })
         console.log(res.data)
       })
       .catch(err => console.log("Error" + err));
 
-    API.getSleep(sleep)
+    API.getSleep(user)
       .then(res => {
         this.setState({ sleep: res.data })
       })
       .catch(err => console.log("Error" + err));
 
-    API.getChange(change)
+    API.getChange(user)
       .then(res => {
         this.setState({ change: res.data })
+        console.log(res.data)
       })
       .catch(err => console.log("Error" + err));
 
