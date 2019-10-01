@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Start from "./start";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import Start from "./start";
 import "./style.css";
 
 class Login extends Component {
