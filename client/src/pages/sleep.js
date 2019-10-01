@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import "./style.css";
 import "rc-time-picker/assets/index.css";
 import moment from "moment";
-import TimePicker from "rc-time-picker";
-import Date from "../components/DatePicker";
+// import TimePicker from "rc-time-picker";
+import DatePicker from "../components/DatePicker";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
 import Container from "../components/Container/container";
 
-const format = "h:mm a";
+// const format = "h:mm a";
 
 class Sleep extends Component {
   state = {
@@ -24,7 +24,7 @@ class Sleep extends Component {
 
     const user = {
       user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z"
+      date: "1999-01-01 05:00:00.000Z",
     }
 
     API.getSleep(user)
@@ -40,18 +40,19 @@ class Sleep extends Component {
 
     API.getSleep({
       user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z", 
-      starttime: this.state.value1.format("hh:mm a"),
-      endtime: this.state.value2.format("hh:mm a"),
+      date: "1999-01-01 05:00:00.000Z",
+      starttime: this.state.value1,
+      endtime: this.state.value2,
       details: this.state.details
     }).then(res =>
       this.setState({
+        date: res.data,
         value1: res.data,
         value2: res.data,
         details: ""
       })
     );
-
+    console.log("date: " + this.state.date);
     console.log("time: " + this.state.value1.format("hh:mm a"));
     console.log("time: " + this.state.value2.format("hh:mm a"));
     console.log("details: " + this.state.details);
@@ -68,7 +69,7 @@ class Sleep extends Component {
     return (
       <div className="container">
         <h2>Sleep</h2>
-        <Date className="date" />
+        <DatePicker className="date" />
 
         <h6>Asleep</h6>
         <Timer />

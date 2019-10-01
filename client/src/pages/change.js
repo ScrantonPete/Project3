@@ -5,11 +5,9 @@ import "rc-time-picker/assets/index.css";
 import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
-import Date from "../components/DatePicker";
 import Container from "../components/Container/container";
 
-
-const format = "hh:mm a";
+// const format = "hh:mm a";
 
 class Change extends Component {
   state = {
@@ -24,7 +22,7 @@ class Change extends Component {
 
     const user = {
       user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z"
+      date: "1999-01-01 05:00:00.000Z",
     }
 
     API.getChange(user)
@@ -45,11 +43,12 @@ class Change extends Component {
       details: this.state.details
     }).then(res =>
       this.setState({
+        date: res.data,
         value: res.data,
         details: ""
       })
     );
-
+    console.log("date: " + this.state.date)
     console.log("details: " + this.state.details);
   };
 
@@ -64,7 +63,7 @@ class Change extends Component {
     return (
       <div className="container">
         <h2>Change Me</h2>
-        <Date />
+        <DatePicker />
         <p></p>
         <Timer />
 

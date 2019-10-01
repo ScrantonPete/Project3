@@ -5,7 +5,6 @@ import "rc-time-picker/assets/index.css";
 import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
-import Date from "../components/DatePicker";
 import Container from "../components/Container/container";
 
 const format = "h:mm a";
@@ -63,7 +62,7 @@ class Eat extends Component {
     return (
       <div className="container">
         <h2>Feed Me</h2>
-        <Date />
+        <DatePicker />
         <p></p>
         <Timer />
 
