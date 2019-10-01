@@ -7,18 +7,20 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findAll: function(req, res) {
-    console.log("REQ" + req.body.user)
-    console.log("REQ" + req.data)
-    console.log("REQ" + res)
-    console.log("REQ" + req.body.JSON(stringify))
 
-    db.Change.find({
-      user: req.body.user,
-      date: req.body.date,
-    })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    db.Change.find({}, function(err, found) {
+      // Log any errors if the server encounters one
+      if (err) {
+        console.log(err);
+      }
+      // Otherwise, send the result of this query to the browser
+      else {
+        res.json(found);
+      }
+    });
   }
+}
+  
   //   ,
   //   deleteOne: function(req, res) {
   //     db.Change.deleteOne({
@@ -29,4 +31,3 @@ module.exports = {
   //       .then(dbModel => res.json(dbModel))
   //       .catch(err => res.status(422).json(err));
   //   }
-};
