@@ -12,3 +12,24 @@ h2 {
     padding: 10px;
     color: #656B71;
 }
+
+.container{
+    margin: 20px 0;
+    clear: both;
+}
+
+h6 {
+    padding: 10px 0 0px 0;
+}
+
+@media (max-width: 575.98px) {
+    .container  {
+        margin:  0;
+        clear: both;
+    }
+
+    h2 {
+        padding-top: 20px;
+    }
+
+}
