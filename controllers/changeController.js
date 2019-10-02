@@ -7,7 +7,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findAll: function(req, res) {
-      console.log("req.body.user", (req.query))
     db.Change.find(
       {
         user: req.query.user,
