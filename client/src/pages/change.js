@@ -50,6 +50,8 @@ class Change extends Component {
     );
     console.log("date: " + this.state.date)
     console.log("details: " + this.state.details);
+    window.location.reload()
+
   };
 
   handleInputChange = event => {

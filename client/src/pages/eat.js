@@ -49,6 +49,7 @@ class Eat extends Component {
     );
     console.log("value " + this.state.value.format(format))
     console.log("details: " + this.state.details);
+    window.location.reload()
   };
 
   handleInputChange = event => {
@@ -83,6 +84,7 @@ class Eat extends Component {
           className="btn btn-info"
           id="save"
           onClick={this.handleFormSubmit}
+          
         >
           Save
         </button>
