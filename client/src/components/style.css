@@ -26,8 +26,8 @@ html, body {
     width: 100%;
     padding: 20px 0px 5px 20px;
     clear: both;
-    position: relative;;
-    bottom:0;
+    position: relative;
+    bottom: 0;
 }
 
 h1, h2 {
@@ -50,8 +50,23 @@ h2 {
     margin-top: 70px;
 }
 
+label {
+    color: #2C2827;
+    font-size: 1em;
+}
+
+.navbutton {
+    margin: 20px 10px;
+    width: 200px;
+
+}
+
 @media (max-width: 575.98px) {  
     h1 {
         margin: 0;
+    }
+
+    h2 {
+        margin-top: 20px;
     }
 }

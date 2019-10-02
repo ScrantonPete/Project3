@@ -8,7 +8,10 @@ module.exports = {
   },
   findAll: function(req, res) {
 
-    db.Change.find({}, function(err, found) {
+    db.Change.find({
+      // user: "connie@mail.com",
+      // date: ""
+    }, function(err, found) {
       // Log any errors if the server encounters one
       if (err) {
         console.log(err);

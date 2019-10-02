@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import Container from "../components/Container/container";
 import API from "../utils/API";
+import DatePicker from "../components/DatePicker";
 
 class DailyLog extends Component {
   state = {
@@ -18,7 +19,7 @@ class DailyLog extends Component {
 
     const user = {
       user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z"
+      date: "1999-01-01 05:00:00.000Z",
     }
 
     API.getFeed(user)
@@ -49,6 +50,7 @@ class DailyLog extends Component {
   
         <div className="container">
         <h2>Daily Log</h2>
+        <DatePicker />
         <div className="log">
           <Container
             itemList={this.state.change}
