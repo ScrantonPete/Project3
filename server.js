@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/babytracker", {
+.connect(process.env.MONGODB_URI || "mongodb://babytracker:babytracker4@ds127044.mlab.com:27044/heroku_lpcfhcpj", {
     useNewUrlParser: true,
     useCreateIndex: true
   })
