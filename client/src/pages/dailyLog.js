@@ -6,8 +6,8 @@ import DatePicker from "../components/DatePicker";
 
 class DailyLog extends Component {
   state = {
-    user: "aaron user1",
-    date: "2019-04-12",
+    user: "connie@mail.com",
+    date: "1999-01-01 05:00:00.000Z",
     feed: [],
     sleep: [],
     change: []
