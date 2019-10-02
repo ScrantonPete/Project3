@@ -18,8 +18,8 @@ class DailyLog extends Component {
     console.log(this.state.change)
 
     const user = {
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z",
+      user: this.state.user,
+      date: this.state.date,
     }
 
     API.getFeed(user)
