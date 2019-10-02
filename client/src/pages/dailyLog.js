@@ -6,8 +6,8 @@ import DatePicker from "../components/DatePicker";
 
 class DailyLog extends Component {
   state = {
-    user: "connie@mail.com",
-    date: "1999-01-01 05:00:00.000Z",
+    user: "aaron user1",
+    date: "2019-04-12",
     feed: [],
     sleep: [],
     change: []
@@ -18,8 +18,8 @@ class DailyLog extends Component {
     console.log(this.state.change)
 
     const user = {
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z",
+      user: this.state.user,
+      date: this.state.date,
     }
 
     API.getFeed(user)
