@@ -56,6 +56,9 @@ class Sleep extends Component {
     console.log("time: " + this.state.value1.format("hh:mm a"));
     console.log("time: " + this.state.value2.format("hh:mm a"));
     console.log("details: " + this.state.details);
+
+    window.location.reload()
+
   };
 
   handleInputChange = event => {

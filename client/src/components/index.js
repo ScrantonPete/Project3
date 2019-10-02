@@ -5,6 +5,7 @@ import API from "../utils/API";
 // import Start from "./start";
 import "./style.css";
 
+
 class Login extends Component {
   state = {
     user: "",
@@ -32,6 +33,8 @@ class Login extends Component {
     // }
     console.log("user: " + this.state.user);
     console.log("password: " + this.state.password);
+    
+
   };
 
   // handleInputChange = event => {
@@ -85,7 +88,7 @@ class Login extends Component {
           <Link to="/start" className={window.location.pathname === "/start"}>
             <button type="submit" 
                     className="btn btn-info"
-                    onClick={this.handleFormSubmit}
+                    // onClick={this.handleFormSubmit}
             >
               Submit
             </button>

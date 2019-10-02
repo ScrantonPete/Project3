@@ -55,8 +55,18 @@ label {
     font-size: 1em;
 }
 
+.navbutton {
+    margin: 20px 10px;
+    width: 200px;
+
+}
+
 @media (max-width: 575.98px) {  
     h1 {
         margin: 0;
+    }
+
+    h2 {
+        margin-top: 20px;
     }
 }
