@@ -8,7 +8,7 @@ export default {
   },
   getChange: function(change) {
     console.log("This is the change object for the for the client get request", change);
-    return axios.get("/api/change/", change);
+    return axios.get("/api/change/", { params: change });
   },
   getSleep: function(sleep) {
     return axios.get("/api/sleep/", sleep);

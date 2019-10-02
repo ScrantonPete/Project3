@@ -7,11 +7,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findAll: function(req, res) {
-      console.log("req.body.user", (req.params))
+      console.log("req.body.user", (req.query))
     db.Change.find(
       {
-        user: req.body.user,
-        date: req.body.date
+        user: req.query.user,
+        date: req.query.date
       },
       function(err, found) {
         // Log any errors if the server encounters one
