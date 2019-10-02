@@ -7,7 +7,7 @@ export default {
     return axios.get("/api/feed", feed);
   },
   getChange: function(change) {
-    console.log("API.js");
+    console.log("This is the change object for the for the client get request", change);
     return axios.get("/api/change/", change);
   },
   getSleep: function(sleep) {
@@ -16,7 +16,7 @@ export default {
 
   // POSTS INFO
   postChange: function(change) {
-    console.log("API.js");
+    console.log("thsi is the change object for the client post request", change);
     return axios.post("/api/change/", change);
   },
   postFeed: function(feed) {
