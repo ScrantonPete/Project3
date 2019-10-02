@@ -10,8 +10,8 @@ module.exports = {
   findAll: function(req, res) {
     db.Sleep.find(
       {
-        user: req.body.user,
-        date: req.body.date
+        user: req.query.user,
+        date: req.query.date
       },
       function(err, found) {
         // Log any errors if the server encounters one
