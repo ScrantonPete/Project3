@@ -5,14 +5,13 @@ const app = express();
 const routes = require("./routes");
 const logger = require("morgan");
 
-// const PORT = process.env.PORT || 3001;
-app.set('port', (process.env.PORT || 1337));
+const PORT = process.env.PORT || 3001;
+// app.set('port', (process.env.PORT || 3001));
 
 
 // Define middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes);
 app.use(logger("dev"));
 
 // Require database
@@ -22,6 +21,8 @@ const mongoose = require("mongoose");
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(routes);
 
 // Connect to the Mongo DB
 mongoose
