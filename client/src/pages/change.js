@@ -6,6 +6,7 @@ import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
 import Container from "../components/Container/container";
+import NavBar from "../components/NavBar/NavBar";
 
 // const format = "hh:mm a";
 
@@ -64,6 +65,7 @@ class Change extends Component {
   render() {
     return (
       <div className="container">
+        <NavBar />
         <h2>Change Me</h2>
         <DatePicker />
         <p></p>

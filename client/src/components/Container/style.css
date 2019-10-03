@@ -9,5 +9,9 @@
     margin-bottom: 20px;
     border: 1px black solid;
     color: #2C2827;
+}
 
+@media (max-width: 575.98px) {
+
+  
 }

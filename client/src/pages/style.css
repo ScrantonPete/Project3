@@ -12,7 +12,7 @@ h2 {
     padding: 10px;
     color: #2C2827;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .container{
@@ -26,6 +26,15 @@ h6 {
 
 #details {
     color: #2C2827;
+}
+
+html, body {
+    height: 100%;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
 }
 
 

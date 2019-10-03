@@ -103,7 +103,7 @@ class Register extends Component {
               />
           </div>
 
-          <Link to="/" className={window.location.pathname === "/start"}>
+          <Link to="/" className={window.location.pathname === "/"}>
             <button type="submit" 
                     className="btn btn-info"
                     onClick={this.handleFormSubmit}
