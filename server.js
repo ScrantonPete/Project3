@@ -24,7 +24,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose
-.connect(process.env.MONGODB_URI || "mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_SERVER}", {
+.connect(process.env.MONGODB_URI || "mongodb://localhost/babytracker", {
     useNewUrlParser: true,
     useCreateIndex: true
   })
