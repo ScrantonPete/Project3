@@ -30,6 +30,7 @@ export default {
     return axios.post("/api/login", login);
   },
   register: function(register) {
+    console.log('register', register)
     return axios.post("/api/register", register);
   }
 };
