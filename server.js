@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const app = express();
 const routes = require("./routes");
@@ -8,7 +10,6 @@ const PORT = process.env.PORT || 3001;
 // Define middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(routes);
 app.use(logger("dev"));
 
 // Require database
@@ -19,9 +20,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+app.use(routes);
+
 // Connect to the Mongo DB
 mongoose
-.connect(process.env.MONGODB_URI || "mongodb://babytracker:babytracker4@ds127044.mlab.com:27044/heroku_lpcfhcpj", {
+.connect(process.env.MONGODB_URI || "mongodb://localhost/babytracker", {
     useNewUrlParser: true,
     useCreateIndex: true
   })
