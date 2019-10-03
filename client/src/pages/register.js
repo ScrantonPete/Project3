@@ -8,29 +8,27 @@ class Register extends Component {
   state = {
     user: "",
     password: "",
-    babyName: "",
-    babyImg: ""
+    babyname: "",
+    babyimg: ""
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("success!");
+    console.log(this.state);
     API.register({
       user: this.state.user,
       password: this.state.password,
-      babyName: this.state.babyName,
-      babyImg: this.state.babyImg
+      babyname: this.state.babyname,
+      babyimg: this.state.babyimg
     })
       .then(res =>
         this.setState({
           user: "",
           password: "",
-          babyName: "",
-          babyImg: ""
+          babyname: "",
+          babyimg: ""
         })
       )
-
-      console.log("Current states: " + this.state.user + " " + this.state.password + " " + this.state.babyName + " " + this.state.babyImg);
   };
 
   handleInputChange = event => {
@@ -88,7 +86,7 @@ class Register extends Component {
               className="form-control"
               id="newName"
               placeholder="Baby's Name Here!"
-              name="babyName"  
+              name="babyname"  
               onChange={this.handleInputChange}            
               />
           </div>
@@ -100,15 +98,15 @@ class Register extends Component {
               className="form-control"
               id="newImage"
               placeholder="Image Url"
-              name="babyImg"  
+              name="babyimg"  
               onChange={this.handleInputChange}
               />
           </div>
 
-          <Link to="/start" className={window.location.pathname === "/start"}>
+          <Link to="/" className={window.location.pathname === "/start"}>
             <button type="submit" 
                     className="btn btn-info"
-                    // onClick={this.handleFormSubmit}
+                    onClick={this.handleFormSubmit}
             >
               Register
             </button>
