@@ -22,26 +22,25 @@ class Sleep extends Component {
   };
 
   componentDidMount = () => {
-
     const user = {
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z",
-    }
+      user: this.state.user,
+      date: this.state.date
+    };
 
     API.getSleep(user)
-        .then(res => {
-          this.setState({ sleep: res.data })
-          console.log(res.data)
-        })
-        .catch(err => console.log("Error" + err));
-  }
+      .then(res => {
+        this.setState({ sleep: res.data });
+        console.log(res.data);
+      })
+      .catch(err => console.log("Error" + err));
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
 
     API.postSleep({
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z",
+      user: this.state.user,
+      date: this.state.date,
       starttime: this.state.value1.format(format),
       endtime: this.state.value2.format(format),
       details: this.state.details
@@ -57,8 +56,7 @@ class Sleep extends Component {
     console.log("endtime: " + this.state.value2.format(format));
     console.log("details: " + this.state.details);
 
-    window.location.reload()
-
+    window.location.reload();
   };
 
   handleInputChange = event => {
@@ -83,7 +81,6 @@ class Sleep extends Component {
         <h6>Awake</h6>
         <Timer />
 
-
         <div className="input-group">
           <div className="input-group-prepend">
             <label className="input-group-text">Details</label>
@@ -107,8 +104,8 @@ class Sleep extends Component {
 
         <SleepContainer
           itemList={this.state.sleep}
-          title="Sleep"> 
-        </SleepContainer>
+          title="Sleep"
+        ></SleepContainer>
       </div>
     );
   }

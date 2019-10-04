@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
-
+// import { Link } from "react-router-dom";
 
 class Register extends Component {
   state = {
@@ -20,15 +19,15 @@ class Register extends Component {
       password: this.state.password,
       babyname: this.state.babyname,
       babyimg: this.state.babyimg
-    })
-      .then(res =>
-        this.setState({
-          user: "",
-          password: "",
-          babyname: "",
-          babyimg: ""
-        })
-      )
+    }).then(res =>
+      this.setState({
+        user: "",
+        password: "",
+        babyname: "",
+        babyimg: ""
+      })
+    );
+    window.location.assign("/");
   };
 
   handleInputChange = event => {
@@ -50,7 +49,7 @@ class Register extends Component {
               className="form-control"
               id="newEmail"
               placeholder="Enter email or user name"
-              name="user"  
+              name="user"
               onChange={this.handleInputChange}
             />
           </div>
@@ -62,7 +61,7 @@ class Register extends Component {
               className="form-control"
               id="newPassword"
               placeholder="*******"
-              name="password"  
+              name="password"
               onChange={this.handleInputChange}
             />
           </div>
@@ -74,7 +73,7 @@ class Register extends Component {
               className="form-control"
               id="confirmPassword"
               placeholder="*******"
-              name="password"  
+              name="password"
               onChange={this.handleInputChange}
             />
           </div>
@@ -86,9 +85,9 @@ class Register extends Component {
               className="form-control"
               id="newName"
               placeholder="Baby's Name Here!"
-              name="babyname"  
-              onChange={this.handleInputChange}            
-              />
+              name="babyname"
+              onChange={this.handleInputChange}
+            />
           </div>
 
           <div className="form-group">
@@ -98,19 +97,20 @@ class Register extends Component {
               className="form-control"
               id="newImage"
               placeholder="Image Url"
-              name="babyimg"  
+              name="babyimg"
               onChange={this.handleInputChange}
-              />
+            />
           </div>
 
-          <Link to="/" className={window.location.pathname === "/"}>
-            <button type="submit" 
-                    className="btn btn-info"
-                    onClick={this.handleFormSubmit}
-            >
-              Register
-            </button>
-          </Link>
+          {/* <Link to="/" className={window.location.pathname === "/"}> */}
+          <button
+            type="submit"
+            className="btn btn-info"
+            onClick={this.handleFormSubmit}
+          >
+            Register
+          </button>
+          {/* </Link> */}
         </form>
       </div>
     );
