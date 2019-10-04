@@ -5,9 +5,6 @@ function NavBar() {
   return (
     <div className="wrapper">
       <div className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="home" href="/">
-          Login
-        </a>
         <a className="eat" href="/eat">
           Eat
         </a>

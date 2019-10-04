@@ -6,6 +6,7 @@ import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
 import Container from "../components/Container/container";
+import NavBar from "../components/NavBar/NavBar";
 
 const format = "h:mm a";
 
@@ -61,7 +62,9 @@ class Eat extends Component {
 
   render() {
     return (
+      
       <div className="container">
+        <NavBar />
         <h2>Feed Me</h2>
         <DatePicker />
         <p></p>

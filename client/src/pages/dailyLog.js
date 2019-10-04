@@ -3,6 +3,7 @@ import "./style.css";
 import Container from "../components/Container/container";
 import API from "../utils/API";
 import DatePicker from "../components/DatePicker";
+import NavBar from "../components/NavBar/NavBar";
 
 class DailyLog extends Component {
   state = {
@@ -49,6 +50,7 @@ class DailyLog extends Component {
       return (
   
         <div className="container">
+        <NavBar />
         <h2>Daily Log</h2>
         <DatePicker />
         <div className="log">

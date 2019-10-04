@@ -10,6 +10,7 @@ import Index from "./components/index";
 import Menu from "./components/menu";
 import Start from "./components/start";
 import Register from "./pages/register";
+import "./App.css";
 
 function App() {
   return (
