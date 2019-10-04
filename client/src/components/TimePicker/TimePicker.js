@@ -13,11 +13,9 @@ class Timer extends Component {
   };
 
   handleValueChange = value => {
-    console.log(value && value.format(format));
+    // console.log(value && value.format(format));
     this.setState({ value });
   };
-
- 
 
   render() {
     const { value } = this.state;
@@ -26,7 +24,7 @@ class Timer extends Component {
         showSecond={false}
         defaultValue={moment()}
         className="xxx"
-        onChange={this.handleInputChange}
+        onChange={this.handleValueChange}
         format={format}
         use12Hours
         inputReadOnly
