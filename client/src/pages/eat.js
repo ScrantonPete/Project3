@@ -8,7 +8,7 @@ import API from "../utils/API";
 import Container from "../components/Container/container";
 import NavBar from "../components/NavBar/NavBar";
 
-const format = "h:mm a";
+// const format = "h:mm a";
 
 class Eat extends Component {
   state = {
@@ -39,7 +39,7 @@ class Eat extends Component {
     API.postFeed({
       user: this.state.user,
       date: this.state.date,
-      time: this.state.value.format("hh:mm a"),
+      time: this.state.value,
       details: this.state.details
     }).then(res =>
       this.setState({
@@ -47,8 +47,7 @@ class Eat extends Component {
         details: ""
       })
     );
-    console.log("value " + this.state.value.format("hh:mm a"));
-    console.log("details: " + this.state.details);
+    // console.log("value " + this.state.value.format("hh:mm a"));
     window.location.reload();
   };
 
@@ -57,7 +56,7 @@ class Eat extends Component {
     this.setState({
       [name]: value
     });
-    console.log(value);
+    // console.log(value);
   };
 
   render() {
