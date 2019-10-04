@@ -15,7 +15,7 @@ export default {
   // POSTS INFO
   postChange: function(change) {
     console.log(
-      "thsi is the change object for the client post request",
+      "this is the change object for the client post request",
       change
     );
     return axios.post("/api/change/", change);

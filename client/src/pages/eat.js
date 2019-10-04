@@ -40,7 +40,7 @@ class Eat extends Component {
     API.postFeed({
       user: "connie@mail.com",
       date: "1999-01-01 05:00:00.000Z", 
-      time: this.state.value.format(format),
+      time: this.state.value.format("hh:mm a"),
       details: this.state.details
     }).then(res =>
       this.setState({
@@ -48,7 +48,7 @@ class Eat extends Component {
         details: ""
       })
     );
-    console.log("value " + this.state.value.format(format))
+    console.log("value " + this.state.value.format("hh:mm a"))
     console.log("details: " + this.state.details);
     window.location.reload()
   };
@@ -58,6 +58,7 @@ class Eat extends Component {
     this.setState({
       [name]: value
     });
+    console.log(value)
   };
 
   render() {
