@@ -3,6 +3,9 @@ import "./style.css";
 import Container from "../components/Container/container";
 import API from "../utils/API";
 import DatePicker from "../components/DatePicker";
+import NavBar from "../components/NavBar/NavBar";
+import SleepContainer from "../components/SleepContainer/sleepContainer";
+
 
 class DailyLog extends Component {
   state = {
@@ -49,6 +52,7 @@ class DailyLog extends Component {
       return (
   
         <div className="container">
+        <NavBar />
         <h2>Daily Log</h2>
         <DatePicker />
         <div className="log">
@@ -56,10 +60,10 @@ class DailyLog extends Component {
             itemList={this.state.change}
             title="Changes"> 
           </Container>
-          <Container
+          <SleepContainer
             itemList={this.state.sleep}
             title="Sleep"> 
-          </Container>
+          </SleepContainer>
           <Container
             itemList={this.state.feed}
             title="Feed"> 

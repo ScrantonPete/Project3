@@ -15,12 +15,14 @@ export default {
   // POSTS INFO
   postChange: function(change) {
     console.log(
-      "thsi is the change object for the client post request",
+      "this is the change object for the client post request",
       change
     );
     return axios.post("/api/change/", change);
   },
   postFeed: function(feed) {
+    console.log("this is the change object for the client post request", feed);
+
     return axios.post("/api/feed/", feed);
   },
   postSleep: function(sleep) {
@@ -30,7 +32,7 @@ export default {
     return axios.post("/api/login", login);
   },
   register: function(register) {
-    console.log('register', register)
+    console.log("register", register);
     return axios.post("/api/register", register);
   }
 };

@@ -6,6 +6,7 @@ import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
 import Container from "../components/Container/container";
+import NavBar from "../components/NavBar/NavBar";
 
 // const format = "hh:mm a";
 
@@ -19,26 +20,25 @@ class Change extends Component {
   };
 
   componentDidMount = () => {
-
     const user = {
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z",
-    }
+      user: this.state.user,
+      date: this.state.date
+    };
 
     API.getChange(user)
-        .then(res => {
-          this.setState({ change: res.data })
-          console.log(res.data)
-        })
-        .catch(err => console.log("Error" + err));
-  }
+      .then(res => {
+        this.setState({ change: res.data });
+        console.log(res.data);
+      })
+      .catch(err => console.log("Error" + err));
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
 
     API.postChange({
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z",
+      user: this.state.user,
+      date: this.state.date,
       time: this.state.value.format("hh:mm a"),
       details: this.state.details
     }).then(res =>
@@ -48,10 +48,9 @@ class Change extends Component {
         details: ""
       })
     );
-    console.log("date: " + this.state.date)
+    console.log("date: " + this.state.date);
     console.log("details: " + this.state.details);
-    window.location.reload()
-
+    window.location.reload();
   };
 
   handleInputChange = event => {
@@ -64,6 +63,7 @@ class Change extends Component {
   render() {
     return (
       <div className="container">
+        <NavBar />
         <h2>Change Me</h2>
         <DatePicker />
         <p></p>
@@ -90,10 +90,7 @@ class Change extends Component {
           Save
         </button>
 
-        <Container
-          itemList={this.state.change}
-          title="Changes"> 
-        </Container>
+        <Container itemList={this.state.change} title="Changes"></Container>
       </div>
     );
   }

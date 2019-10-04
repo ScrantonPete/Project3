@@ -6,8 +6,9 @@ import moment from "moment";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
 import Container from "../components/Container/container";
+import NavBar from "../components/NavBar/NavBar";
 
-const format = "h:mm a";
+// const format = "h:mm a";
 
 class Eat extends Component {
   state = {
@@ -15,31 +16,30 @@ class Eat extends Component {
     date: "1999-01-01 05:00:00.000Z",
     value: moment(),
     details: "",
-    feed: [],
+    feed: []
   };
 
   componentDidMount = () => {
-
     const user = {
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z"
-    }
+      user: this.state.user,
+      date: this.state.date
+    };
 
     API.getFeed(user)
-        .then(res => {
-          this.setState({ feed: res.data })
-          console.log(res.data)
-        })
-        .catch(err => console.log("Error" + err));
-  }
+      .then(res => {
+        this.setState({ feed: res.data });
+        console.log(res.data);
+      })
+      .catch(err => console.log("Error" + err));
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
 
     API.postFeed({
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z", 
-      time: this.state.value.format(format),
+      user: this.state.user,
+      date: this.state.date,
+      time: this.state.value,
       details: this.state.details
     }).then(res =>
       this.setState({
@@ -47,9 +47,8 @@ class Eat extends Component {
         details: ""
       })
     );
-    console.log("value " + this.state.value.format(format))
-    console.log("details: " + this.state.details);
-    window.location.reload()
+    // console.log("value " + this.state.value.format("hh:mm a"));
+    window.location.reload();
   };
 
   handleInputChange = event => {
@@ -57,11 +56,13 @@ class Eat extends Component {
     this.setState({
       [name]: value
     });
+    // console.log(value);
   };
 
   render() {
     return (
       <div className="container">
+        <NavBar />
         <h2>Feed Me</h2>
         <DatePicker />
         <p></p>
@@ -84,15 +85,11 @@ class Eat extends Component {
           className="btn btn-info"
           id="save"
           onClick={this.handleFormSubmit}
-          
         >
           Save
         </button>
 
-        <Container
-          itemList={this.state.feed}
-          title="Feed"> 
-        </Container>
+        <Container itemList={this.state.feed} title="Feed"></Container>
       </div>
     );
   }
