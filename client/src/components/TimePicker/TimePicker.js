@@ -8,13 +8,19 @@ import moment from "moment";
 const format = "hh:mm a";
 
 class Timer extends Component {
-  state = {};
-
-  handleInputChange = value => {
-    console.log(value && value.format(format));
+  state = {
+    value: moment()
   };
 
+  handleValueChange = value => {
+    console.log(value && value.format(format));
+    this.setState({ value });
+  };
+
+ 
+
   render() {
+    const { value } = this.state;
     return (
       <TimePicker
         showSecond={false}
@@ -24,7 +30,6 @@ class Timer extends Component {
         format={format}
         use12Hours
         inputReadOnly
-        name="value"
         id="timepicker"
       />
     );
