@@ -6,10 +6,10 @@ import moment from "moment";
 import DatePicker from "../components/DatePicker";
 import Timer from "../components/TimePicker";
 import API from "../utils/API";
-import Container from "../components/Container/container";
+import SleepContainer from "../components/SleepContainer/sleepContainer";
 import NavBar from "../components/NavBar/NavBar";
 
-// const format = "h:mm a";
+const format = "h:mm a";
 
 class Sleep extends Component {
   state = {
@@ -22,44 +22,41 @@ class Sleep extends Component {
   };
 
   componentDidMount = () => {
-
     const user = {
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z",
-    }
+      user: this.state.user,
+      date: this.state.date
+    };
 
     API.getSleep(user)
-        .then(res => {
-          this.setState({ sleep: res.data })
-          console.log(res.data)
-        })
-        .catch(err => console.log("Error" + err));
-  }
+      .then(res => {
+        this.setState({ sleep: res.data });
+        console.log(res.data);
+      })
+      .catch(err => console.log("Error" + err));
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
 
-    API.getSleep({
-      user: "connie@mail.com",
-      date: "1999-01-01 05:00:00.000Z",
-      starttime: this.state.value1,
-      endtime: this.state.value2,
+    API.postSleep({
+      user: this.state.user,
+      date: this.state.date,
+      starttime: this.state.value1.format(format),
+      endtime: this.state.value2.format(format),
       details: this.state.details
     }).then(res =>
       this.setState({
-        date: res.data,
         value1: res.data,
         value2: res.data,
         details: ""
       })
     );
     console.log("date: " + this.state.date);
-    console.log("time: " + this.state.value1.format("hh:mm a"));
-    console.log("time: " + this.state.value2.format("hh:mm a"));
+    console.log("starttime: " + this.state.value1.format(format));
+    console.log("endtime: " + this.state.value2.format(format));
     console.log("details: " + this.state.details);
 
-    window.location.reload()
-
+    window.location.reload();
   };
 
   handleInputChange = event => {
@@ -69,7 +66,7 @@ class Sleep extends Component {
     });
   };
 
-  render() {
+  render(props) {
     return (
       <div className="container">
         <NavBar />
@@ -83,7 +80,6 @@ class Sleep extends Component {
 
         <h6>Awake</h6>
         <Timer />
-
 
         <div className="input-group">
           <div className="input-group-prepend">
@@ -106,10 +102,10 @@ class Sleep extends Component {
           Save
         </button>
 
-        <Container
+        <SleepContainer
           itemList={this.state.sleep}
-          title="Sleep"> 
-        </Container>
+          title="Sleep"
+        ></SleepContainer>
       </div>
     );
   }
