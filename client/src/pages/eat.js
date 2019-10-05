@@ -11,10 +11,9 @@ import NavBar from "../components/NavBar/NavBar";
 const format = "h:mm a";
 
 class Eat extends Component {
-  
   state = {
-    user: "connie@mail.com",
-    date: "1999-01-01 05:00:00.000Z",
+    user: "some user",
+    date: "2019-08-12 00:00:00.000Z",
     value: moment(),
     details: "",
     feed: []
@@ -33,10 +32,10 @@ class Eat extends Component {
       })
       .catch(err => console.log("Error" + err));
   };
-  handleTimeChange = (timeValue) => {
-    console.log("time value", timeValue)
-    this.setState({ value: timeValue})
-  }
+  handleTimeChange = timeValue => {
+    console.log("time value", timeValue);
+    this.setState({ value: timeValue });
+  };
   handleFormSubmit = event => {
     event.preventDefault();
 
@@ -54,7 +53,12 @@ class Eat extends Component {
     // console.log("value " + this.state.value.format("hh:mm a"));
     window.location.reload();
   };
-
+  
+  handleTimeChange = timeValue => {
+    console.log("time value", timeValue);
+    this.setState({ value: timeValue });
+  };
+  
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -70,9 +74,7 @@ class Eat extends Component {
         <h2>Feed Me</h2>
         <DatePicker />
         <p></p>
-        <Timer 
-        onTimeChange={this.handleTimeChange}
-        />
+        <Timer onTimeChange={this.handleTimeChange} />
 
         <div className="input-group">
           <div className="input-group-prepend">

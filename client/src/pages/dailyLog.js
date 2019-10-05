@@ -9,8 +9,8 @@ import SleepContainer from "../components/SleepContainer/sleepContainer";
 
 class DailyLog extends Component {
   state = {
-    user: "connie@mail.com",
-    date: "1999-01-01 05:00:00.000Z",
+    user: "some user",
+    date: "2019-08-12 00:00:00.000Z",
     feed: [],
     sleep: [],
     change: []
