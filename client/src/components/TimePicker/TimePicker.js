@@ -8,13 +8,22 @@ import moment from "moment";
 const format = "hh:mm a";
 
 class Timer extends Component {
-  state = {
-    value: moment()
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: moment()
+    };
+    this.handleValueChange = this.handleValueChange.bind(this);
+  }
 
   handleValueChange = value => {
-    // console.log(value && value.format(format));
-    this.setState({ value });
+    console.log(value && value.format(format));
+    // const time = this.state.value;
+    this.setState({
+      value: value
+    }, () => this.props.onTimeChange(this.state.value))
+    // console.log("time :", time)
+    // this.props.onTimeChange(value);
   };
 
   render() {
@@ -22,7 +31,7 @@ class Timer extends Component {
     return (
       <TimePicker
         showSecond={false}
-        defaultValue={moment()}
+        defaultValue={this.state.value}
         className="xxx"
         onChange={this.handleValueChange}
         format={format}
