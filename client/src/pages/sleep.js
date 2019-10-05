@@ -13,8 +13,8 @@ const format = "h:mm a";
 
 class Sleep extends Component {
   state = {
-    user: "some user",
-    date: "2019-08-12 00:00:00.000Z",
+    user: "connie@mail.com",
+    date: "1999-01-01 05:00:00.000Z",
     value1: moment(),
     value2: moment(),
     details: "",
