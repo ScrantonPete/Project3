@@ -8,9 +8,10 @@ import API from "../utils/API";
 import Container from "../components/Container/container";
 import NavBar from "../components/NavBar/NavBar";
 
-// const format = "h:mm a";
+const format = "h:mm a";
 
 class Eat extends Component {
+  
   state = {
     user: "connie@mail.com",
     date: "1999-01-01 05:00:00.000Z",
@@ -32,14 +33,17 @@ class Eat extends Component {
       })
       .catch(err => console.log("Error" + err));
   };
-
+  handleTimeChange = (timeValue) => {
+    console.log("time value", timeValue)
+    this.setState({ value: timeValue})
+  }
   handleFormSubmit = event => {
     event.preventDefault();
 
     API.postFeed({
       user: this.state.user,
       date: this.state.date,
-      time: this.state.value,
+      time: this.state.value.format("hh:mm a"),
       details: this.state.details
     }).then(res =>
       this.setState({
@@ -66,7 +70,9 @@ class Eat extends Component {
         <h2>Feed Me</h2>
         <DatePicker />
         <p></p>
-        <Timer />
+        <Timer 
+        onTimeChange={this.handleTimeChange}
+        />
 
         <div className="input-group">
           <div className="input-group-prepend">
