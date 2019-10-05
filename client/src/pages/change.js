@@ -52,6 +52,10 @@ class Change extends Component {
     console.log("details: " + this.state.details);
     window.location.reload();
   };
+  handleTimeChange = timeValue => {
+    console.log("time value", timeValue);
+    this.setState({ value: timeValue });
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -67,7 +71,7 @@ class Change extends Component {
         <h2>Change Me</h2>
         <DatePicker />
         <p></p>
-        <Timer />
+        <Timer onTimeChange={this.handleTimeChange} />
 
         <div className="input-group">
           <div className="input-group-prepend">

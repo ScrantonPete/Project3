@@ -51,13 +51,17 @@ class Sleep extends Component {
         details: ""
       })
     );
-    console.log("date: " + this.state.date);
-    console.log("starttime: " + this.state.value1.format(format));
-    console.log("endtime: " + this.state.value2.format(format));
-    console.log("details: " + this.state.details);
+    // console.log("date: " + this.state.date);
+    // console.log("starttime: " + this.state.value1.format(format));
+    // console.log("endtime: " + this.state.value2.format(format));
+    // console.log("details: " + this.state.details);
 
     window.location.reload();
   };
+  handleTimeChange = (timeValue) => {
+    // console.log("time value", timeValue)
+    this.setState({ value1: timeValue})
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -74,12 +78,16 @@ class Sleep extends Component {
         <DatePicker className="date" />
 
         <h6>Asleep</h6>
-        <Timer />
+        <Timer 
+        onTimeChange={this.handleTimeChange}
+        />
 
         <h6>to</h6>
 
         <h6>Awake</h6>
-        <Timer />
+        <Timer 
+        onTimeChange={this.handleTimeChange}
+        />
 
         <div className="input-group">
           <div className="input-group-prepend">
