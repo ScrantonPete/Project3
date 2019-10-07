@@ -4,7 +4,8 @@
     /* font-family: 'Pacifico', cursive; */
 }
 
-html, body {
+html,
+body {
     background-color: #DEC8AA;
     background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
     height: 100%;
@@ -31,7 +32,8 @@ html, body {
     bottom: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
     /* font-family: 'Barriecito', cursive; */
     font-family: 'Great Vibes', cursive;
 
@@ -62,7 +64,7 @@ label {
 
 }
 
-@media (max-width: 575.98px) {  
+@media (max-width: 575.98px) {
     h1 {
         margin: 0;
     }

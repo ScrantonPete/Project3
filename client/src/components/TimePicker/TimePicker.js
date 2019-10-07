@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
 import TimePicker from "rc-time-picker";
 import "rc-time-picker/assets/index.css";
 import "./TimePicker.css";
@@ -17,17 +16,15 @@ class Timer extends Component {
   }
 
   handleValueChange = value => {
-    console.log(value && value.format(format));
-    // const time = this.state.value;
-    this.setState({
-      value: value
-    }, () => this.props.onTimeChange(this.state.value))
-    // console.log("time :", time)
-    // this.props.onTimeChange(value);
+    this.setState(
+      {
+        value: value
+      },
+      () => this.props.onTimeChange(this.state.value)
+    );
   };
 
   render() {
-    const { value } = this.state;
     return (
       <TimePicker
         showSecond={false}

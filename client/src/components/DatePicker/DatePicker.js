@@ -8,8 +8,6 @@ class DatePick extends Component {
   };
 
   handleChange = date => {
-    // console.log(this.state.startDate);
-    // if (startDate === this.state.startDate) return;
     this.setState({
       startDate: date
     });
