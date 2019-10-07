@@ -8,8 +8,6 @@ import API from "../utils/API";
 import Container from "../components/Container/container";
 import NavBar from "../components/NavBar/NavBar";
 
-// const format = "hh:mm a";
-
 class Change extends Component {
   state = {
     user: "connie@mail.com",
@@ -28,7 +26,6 @@ class Change extends Component {
     API.getChange(user)
       .then(res => {
         this.setState({ change: res.data });
-        console.log(res.data);
       })
       .catch(err => console.log("Error" + err));
   };
@@ -48,12 +45,10 @@ class Change extends Component {
         details: ""
       })
     );
-    console.log("date: " + this.state.date);
-    console.log("details: " + this.state.details);
+
     window.location.reload();
   };
   handleTimeChange = timeValue => {
-    console.log("time value", timeValue);
     this.setState({ value: timeValue });
   };
 

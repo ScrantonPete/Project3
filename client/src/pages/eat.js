@@ -8,8 +8,6 @@ import API from "../utils/API";
 import Container from "../components/Container/container";
 import NavBar from "../components/NavBar/NavBar";
 
-const format = "h:mm a";
-
 class Eat extends Component {
   state = {
     user: "some user",
@@ -28,12 +26,10 @@ class Eat extends Component {
     API.getFeed(user)
       .then(res => {
         this.setState({ feed: res.data });
-        console.log(res.data);
       })
       .catch(err => console.log("Error" + err));
   };
   handleTimeChange = timeValue => {
-    console.log("time value", timeValue);
     this.setState({ value: timeValue });
   };
   handleFormSubmit = event => {
@@ -50,21 +46,20 @@ class Eat extends Component {
         details: ""
       })
     );
-    // console.log("value " + this.state.value.format("hh:mm a"));
+
     window.location.reload();
   };
-  
+
   handleTimeChange = timeValue => {
-    console.log("time value", timeValue);
+  
     this.setState({ value: timeValue });
   };
-  
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-    // console.log(value);
   };
 
   render() {
