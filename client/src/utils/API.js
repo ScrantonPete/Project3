@@ -19,6 +19,7 @@ export default {
     return axios.post("/api/feed/", feed);
   },
   postSleep: function(sleep) {
+    console.log("this is the sleep object: ", sleep)
     return axios.post("/api/sleep/", sleep);
   },
   login: function(login) {

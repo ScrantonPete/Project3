@@ -43,7 +43,7 @@ class Change extends Component {
         date: res.data,
         value: res.data,
         details: ""
-      })
+      })                  
     );
 
     window.location.reload();
