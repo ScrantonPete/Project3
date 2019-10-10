@@ -56,7 +56,9 @@ class Sleep extends Component {
   handleTimeChange = timeValue => {
     this.setState({ value1: timeValue });
   };
-
+  DateChange = dateNow => {
+    this.setState({ date: dateNow });
+  };
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -69,7 +71,7 @@ class Sleep extends Component {
       <div className="container">
         <NavBar />
         <h2>Sleep</h2>
-        <DatePicker className="date" />
+        <DatePicker onDateChange={this.DateChange} />
 
         <h6>Asleep</h6>
         <Timer onTimeChange={this.handleTimeChange} />

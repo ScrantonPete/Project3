@@ -11,7 +11,7 @@ import NavBar from "../components/NavBar/NavBar";
 class Change extends Component {
   state = {
     user: "connie@mail.com",
-    date: "1999-01-01 05:00:00.000Z",
+    date: "",
     value: moment(),
     details: "",
     change: []
@@ -51,7 +51,9 @@ class Change extends Component {
   handleTimeChange = timeValue => {
     this.setState({ value: timeValue });
   };
-
+  DateChange = dateNow => {
+    this.setState({ date: dateNow });
+  };
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -64,7 +66,7 @@ class Change extends Component {
       <div className="container">
         <NavBar />
         <h2>Change Me</h2>
-        <DatePicker />
+        <DatePicker onDateChange={this.DateChange} />
         <p></p>
         <Timer onTimeChange={this.handleTimeChange} />
 

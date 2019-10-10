@@ -10,8 +10,8 @@ import NavBar from "../components/NavBar/NavBar";
 
 class Eat extends Component {
   state = {
-    user: "some user",
-    date: "2019-08-12 00:00:00.000Z",
+    user: "connie@mail.com",
+    date: "",
     value: moment(),
     details: "",
     feed: []
@@ -31,6 +31,9 @@ class Eat extends Component {
   };
   handleTimeChange = timeValue => {
     this.setState({ value: timeValue });
+  };
+  DateChange = dateNow => {
+    this.setState({ date: dateNow });
   };
   handleFormSubmit = event => {
     event.preventDefault();
@@ -67,7 +70,7 @@ class Eat extends Component {
       <div className="container">
         <NavBar />
         <h2>Feed Me</h2>
-        <DatePicker />
+        <DatePicker onDateChange={this.DateChange} />
         <p></p>
         <Timer onTimeChange={this.handleTimeChange} />
 
